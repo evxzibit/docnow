@@ -9,31 +9,23 @@ global $Session_ID;
 $notifications = loadPatientNotifications($Profile_ID);
 
 ?>
-	<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 tg-findheatlhwidth">
-		<div class="row">
-			<div class="tg-docinfo tg-haslayout">
-				<div class="tg-box">		
-					<div class="tg-description">
-						<div class="col-md-3">
-							<a href="javascript:" class="tg-btn" style="width: 100%;" id="book_dr"><span style="font-size: 14px;">Book Dr</span></a>
-						</div>
-						
-						<div class="col-md-3">
-							<a href="/patients/patient-notifications.html?Session_ID=<?=$Session_ID?>" class="tg-btn" style="width: 100%;">Notifications</a>
-						</div>
-						
-						<div class="col-md-3">
-							<a href="/patients/past-appointments-and-reviews.html?Session_ID=<?=$Session_ID?>" class="tg-btn" style="width: 100%;">Reviews</a>
-						</div>
-						
-						<div class="col-md-3">
-							<a href="/patients/settings.html?Session_ID=<?=$Session_ID?>" class="tg-btn" style="width: 100%;">Settings</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+<div class="tg-description">
+	<div class="col-md-3">
+		<a href="javascript:" class="tg-btn" style="width: 100%;" id="book_dr"><span style="font-size: 14px;">Book Dr</span></a>
 	</div>
+	
+	<div class="col-md-3">
+		<a href="/patients/patient-notifications.html?Session_ID=<?=$Session_ID?>" class="tg-btn" style="width: 100%;">Notifications</a>
+	</div>
+	
+	<div class="col-md-3">
+		<a href="/patients/past-appointments-and-reviews.html?Session_ID=<?=$Session_ID?>" class="tg-btn" style="width: 100%;">Reviews</a>
+	</div>
+	
+	<div class="col-md-3">
+		<a href="/patients/settings.html?Session_ID=<?=$Session_ID?>" class="tg-btn" style="width: 100%;">Settings</a>
+	</div>
+</div>
 <div  class="col-sm-12">
 	<h3>Patient Notifications</h3>
 	<hr/>
