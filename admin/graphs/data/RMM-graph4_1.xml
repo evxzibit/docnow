@@ -1,0 +1,26 @@
+<graph bgAlpha='0,0' yAxisName='Visits' xAxisName='' chartTopMargin='30' chartBottomMargin='10' showDivLineValue='0' showLimits='0'>
+   <categories>
+      <category name='Web' hoverText='Web'/>
+      <category name='Social' hoverText='Social'/>
+      <category name='Campaigns' hoverText='Campaigns'/>
+      <category name='Search' hoverText='Search'/>
+   </categories>
+   <dataset seriesname='Desktop' color='74b3f1' showValue='1'>
+      <set value='8343' />
+      <set value='6983' />
+      <set value='8343' />
+      <set value='6983' />
+   </dataset>
+   <dataset seriesname='Mobile' color='71bf18' showValue='1'>
+      <set value='2446' />
+      <set value='3935' />
+      <set value='2446' />
+      <set value='3935' />
+   </dataset>
+   <dataset seriesname='Tablet' color='ffbd00' showValue='1'>
+      <set value='0' />
+      <set value='273' />
+      <set value='13' />
+      <set value='193' />
+   </dataset>
+</graph>

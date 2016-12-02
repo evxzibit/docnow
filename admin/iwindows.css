@@ -1,0 +1,68 @@
+/*-----------------------------------------------------------------
+ * modalDialog classes
+ *-----------------------------------------------------------------*/
+
+.boxHeaderActive {
+	padding: 12px;
+	padding-bottom: 12px;
+	background: url(images/modal-bg.gif) repeat-x;
+	border-bottom: 1px solid #cccccc;
+	cursor: move;
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+.boxHeaderPassive {
+	padding: 12px;
+	padding-bottom: 12px;
+	background-color: #f2f2f2;
+	border-bottom: 1px solid #cccccc;
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+.windowTitle {
+	position: absolute;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 12px;
+	top: 5px;
+	left: 8px;
+}
+.closeWindow {
+	width: 25px;
+	height: 15px;
+	background: url(images/modal-close.gif) no-repeat;
+	cursor: pointer;
+	position: absolute;
+	top: 5px;
+	right: 7px;
+}
+.frameBackground {
+	background-color: #ffffff;
+	padding: 0px;
+	-webkit-border-bottom-left-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	-moz-border-radius-bottomleft: 3px;
+	-moz-border-radius-bottomright: 3px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+.overlayWindow {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background-color: #ffffff;
+	filter: alpha(opacity=40);
+	-moz-opacity: 0.4;
+	opacity: 0.4;
+	z-index: 300;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}

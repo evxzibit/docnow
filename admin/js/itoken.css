@@ -1,0 +1,13 @@
+ul.tokenHolder { margin: 0; border: 1px solid #999; width: 500px; min-height: 22px; overflow: hidden; padding: 4px 5px 0; cursor: text; background-color: #ffffff; }
+*:first-child+html ul.tokenHolder { padding-bottom: 2px; }
+* html ul.tokenHolder { padding-bottom: 2px; } /* ie7 and below */
+ul.tokenHolder li { float: left; list-style-type: none; margin: 0 5px 3px 0; white-space: nowrap;}
+ul.tokenHolder li.box { -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; border: 1px solid #CAD8F3; background: #DEE7F8; padding: 1px 5px 2px; padding-right: 15px; position: relative; z-index: 1000; }
+ul.tokenHolder li.box-focus { border-color: #598BEC; background: #598BEC; color: #fff; }
+ul.tokenHolder li.box-input input { width: auto; overflow: visible; margin: 2px 0; border: 0px; height: 13px; outline: 0; padding: 0; }
+ul.tokenHolder li.box, 
+ul.tokenHolder li.box-input input { font: 11px "Lucida Grande", "Verdana"; }
+ul.tokenHolder li.box a.closebutton { position: absolute; right: 4px; top: 5px; display: block; width: 7px; height: 7px; font-size: 1px; background: url('/live/pagebuilder/components/shared/close.gif'); cursor: pointer; }
+ul.tokenHolder li.box a.closebutton:hover { background-position: 7px; }
+ul.tokenHolder li.box-focus a.closebutton, 
+ul.tokenHolder li.box-focus a.closebutton:hover { background-position: bottom; }

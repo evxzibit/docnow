@@ -1,0 +1,6 @@
+<chart bgAlpha='0,0' showNames='1' showValues='1' numberPrefix='' numberScaleValue='1000,1000' numberScaleUnit='K,M' decimalPrecision='0' isSliced='1' slicingDistance='15' chartTopMargin="15" chartBottomMargin="30">
+    <set name='4 channels' value='20000' color='0099FF' />
+    <set name='3 channels' value='49000' color='66CC66' />
+    <set name='2 channels' value='63000' color='CD6AC0' />
+    <set name='1 channel' value='41000' color='FF5904' />
+</chart>

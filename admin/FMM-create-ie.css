@@ -1,0 +1,42 @@
+.fieldtype {
+	background: #ccc;
+}
+.description strong, .description strong:hover {
+	background: url(images/fff_field_description.gif) no-repeat 5px 50%;
+}
+.textbox strong, .textbox strong:hover {
+	background: url(images/fff_field.gif) no-repeat 5px 50%;
+}
+.email strong, .email strong:hover {
+	background: url(images/fff_field_email.gif) no-repeat 5px 50%;
+}
+.tel strong, .tel strong:hover {
+	background: url(images/fff_field_mobile.gif) no-repeat 5px 50%;
+}
+.password strong, .password strong:hover {
+	background: url(images/fff_field_password.gif) no-repeat 5px 50%;
+}
+.dropdown strong, .dropdown strong:hover {
+	background: url(images/fff_field_dropdown.gif) no-repeat 5px 50%;
+}
+.radio strong, .radio strong:hover {
+	background: url(images/fff_field_radio.gif) no-repeat 5px 50%;
+}
+.checkbox strong, .checkbox strong:hover {
+	background: url(images/fff_field_checkbox.gif) no-repeat 5px 50%;
+}
+.checkboxgroup strong, .checkboxgroup strong:hover {
+	background: url(images/fff_field_checkbox_group.gif) no-repeat 5px 50%;
+}
+.multiselect strong, .multiselect strong:hover {
+	background: url(images/fff_field_multiselect.gif) no-repeat 5px 50%;
+}
+.textarea strong, .textarea strong:hover {
+	background: url(images/fff_field_textarea.gif) no-repeat 5px 50%;
+}
+.date strong, .date strong:hover {
+	background: url(images/fff_field_date.gif) no-repeat 5px 50%;
+}
+.file strong, .file strong:hover {
+	background: url(images/fff_field_file.gif) no-repeat 5px 50%;
+}

@@ -1,0 +1,11 @@
+.selectHolder { list-style-type: none; margin: 0; padding: 0; overflow: auto; z-index: 1; border: 1px solid #cccccc; }
+.selectHolder li { display: block; float: left; list-style-image: none; list-style-type: none; margin: 1px; padding: 2px; cursor: pointer; }
+.selectHolder .item { clear: both; position: relative; overflow: hidden; border: 1px solid #ffffff; padding: 5px; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; }
+.selectHolder .over { background-color: #F7F7F7 !important; border: 1px solid #cccccc; }
+.selectHolder .selected { background-color: #D7F8AC !important; background-image: url(/live/pagebuilder/components/shared/iselection_checked.png); background-repeat: no-repeat; background-position: right bottom; }
+.selectHolder .li_selected { background-color: #d7f8ac !important; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; }
+.selectFilters { margin-top: 5px; border: 1px solid #cccccc; border-bottom: 0px; padding: 4px 0pt 4px 0pt; zoom: 1; }
+.selectFilters .selectFilterTabs { float: left; list-style-type: none; margin: 0px; padding: 0px 0px 0px 5px; }
+.selectFilters .selectFilterTabs li { float: left; padding: 4px 7px; text-align: center; width: 100px; }
+.selectFilters .selectFilterTabs li.view_on { background: #ffffff url(/live/pagebuilder/components/shared/iselection_filter.gif) repeat-x scroll center top; }
+.selectFilters .selectFilterTabs li a { color: #3b5998; text-decoration: none; }

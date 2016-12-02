@@ -1,0 +1,211 @@
+body {
+	background-color: #FFFFCC;
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+	scrollbar-track-color: #99CCCC;
+}
+td {
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+A:link {
+	color: #FF3366;
+	font-weight: bold;
+	text-decoration: underline;
+}
+A:hover {
+	color: #FFCCFF;
+	font-weight: bold;
+	text-decoration: none;
+}
+A:visited {
+	color: #CCCC33;
+	font-weight: bold;
+	text-decoration: underline;
+}
+input {
+	background-color: #FFFFCC;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+textarea {
+	background-color: #FFFFCC;
+	font-family: Courier New;
+	font-size: 12px;
+}
+select {
+	background-color: #FFFFCC;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+.Xlinks {
+	font-family: Arial, Verdana, Helvetica;
+	font-size: 12px;
+}
+
+.Xcontainer1 {
+	border: 1px solid #000000;
+}
+.Xtitle1 {
+	background-color: #9966CC;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-family: Verdana;
+	font-size: 11px;
+}
+.Xcontent1 {
+	background-color: #EEEEEE;
+	color: black;
+	font-family: Verdana;
+	font-size: 11px;
+}
+.Xfooter1 {
+	background-color: white;
+	color: black;
+	font-family: Arial, Verdana, Helvetica;
+	font-size: 12px;
+}
+
+.Xcontainer2 {
+	border: 1px solid #000000;
+}
+.Xtitle2 {
+	background-color: navy;
+	color: white;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 12px;
+}
+.Xcontent2 {
+	background-color: white;
+	color: black;
+	font-family: Verdana;
+	font-size: 11px;
+}
+.Xfooter2 {
+	background-color: white;
+	color: black;
+	font-family: Arial, Verdana, Helvetica;
+	font-size: 12px;
+}
+
+.Xcontainer3 {
+	border: 1px solid #000000;
+}
+.Xtitle3 {
+	background-color: navy;
+	color: white;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 12px;
+}
+.Xcontent3 {
+	background-color: white;
+	color: black;
+	font-weight: normal;
+	font-family: Arial, Verdana, Helvetica;
+	font-size: 12px;
+}
+.Xfooter3 {
+	background-color: white;
+	color: black;
+	font-weight: normal;
+	font-family: Arial, Verdana, Helvetica;
+	font-size: 12px;
+}
+
+.Xcontainer4 {
+	border: 1px solid #000000;
+}
+.Xtitle4 {
+	background-color: navy;
+	color: white;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 12px;
+}
+.Xcontent4 {
+	background-color: white;
+	color: black;
+	font-weight: normal;
+	font-family: Arial, Verdana, Helvetica;
+	font-size: 12px;
+}
+.Xfooter4 {
+	background-color: white;
+	color: black;
+	font-weight: normal;
+	font-family: Arial, Verdana, Helvetica;
+	font-size: 12px;
+}
+
+.Xcontainer5 {
+	border: 1px solid #000000;
+}
+.Xtitle5 {
+	background-color: navy;
+	color: white;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 12px;
+}
+.Xcontent5 {
+	background-color: white;
+	color: black;
+	font-weight: normal;
+	font-family: Arial, Verdana, Helvetica;
+	font-size: 12px;
+}
+.Xfooter5 {
+	background-color: white;
+	color: black;
+	font-weight: normal;
+	font-family: Arial, Verdana, Helvetica;
+	font-size: 12px;
+}
+
+.Xcontainer6 {
+	border: 0px solid;
+}
+.Xtitle6 {
+	background-color: #FFFFCC;
+	color: black;
+	font-weight: bold;
+	font-family: Verdana;
+	font-size: 11px;
+}
+.Xcontent6 {
+	background-color: #FFFFCC;
+	color: black;
+	font-family: Verdana;
+	font-size: 11px;
+}
+.Xfooter6 {
+	background-color: white;
+	color: black;
+	font-family: Arial, Verdana, Helvetica;
+	font-size: 12px;
+}
+
+.Xcontentfreeform {
+	background-color: white;
+	color: black;
+	font-weight: normal;
+	font-family: Arial, Verdana, Helvetica;
+	font-size: 12px;
+}
+
+.Xiframe {}
+.Xpage {}
+.Xpagetop {}
+.Xpagebottom {}
+.Xspacer {
+	background-color: #FFFFCC;
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+.Xpageleft {}
+.Xpagemiddle {}
+.Xpageright {}

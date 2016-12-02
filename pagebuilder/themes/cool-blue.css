@@ -1,0 +1,205 @@
+body {
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+td {
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+A:link {
+	color: #000000;
+	text-decoration: underline;
+}
+A:hover {
+	color: #666666;
+	text-decoration: underline;
+}
+A:visited {
+	color: #999999;
+	text-decoration: underline;
+}
+input {
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+textarea {
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+select {
+	background-color: #FFFF99;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+.Xlinks {
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+
+.Xcontainer1 {
+	border: 1px solid #AFAFCE;
+}
+.Xtitle1 {
+	background-color: #DEDEDE;
+	color: navy;
+	font-weight: bold;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+.Xcontent1 {
+	background-color: #F5F8FB;
+	color: #2B4157;
+	font-weight: normal;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+.Xfooter1 {
+	background-color: #F5F8FB;
+	color: #2B4157;
+	font-weight: normal;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+
+.Xcontainer2 {
+	border: 1px solid #AFAFCE;
+}
+.Xtitle2 {
+	background-color: #DEDEDE;
+	color: navy;
+	font-weight: bold;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+.Xcontent2 {
+	background-color: #F5F8FB;
+	color: #2B4157;
+	font-weight: normal;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+.Xfooter2 {
+	background-color: #F5F8FB;
+	color: #2B4157;
+	font-weight: normal;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+
+.Xcontainer3 {
+	border: 1px solid #AFAFCE;
+}
+.Xtitle3 {
+	background-color: #DEDEDE;
+	color: navy;
+	font-weight: bold;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+.Xcontent3 {
+	background-color: #F5F8FB;
+	color: #2B4157;
+	font-weight: normal;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+.Xfooter3 {
+	background-color: #F5F8FB;
+	color: #2B4157;
+	font-weight: normal;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+
+.Xcontainer4 {
+	border: 1px solid #AFAFCE;
+}
+.Xtitle4 {
+	background-color: #DEDEDE;
+	color: navy;
+	font-weight: bold;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+.Xcontent4 {
+	background-color: #F5F8FB;
+	color: #2B4157;
+	font-weight: normal;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+.Xfooter4 {
+	background-color: #F5F8FB;
+	color: #2B4157;
+	font-weight: normal;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+
+.Xcontainer5 {
+	border: 1px solid #AFAFCE;
+}
+.Xtitle5 {
+	background-color: #DEDEDE;
+	color: navy;
+	font-weight: bold;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+.Xcontent5 {
+	background-color: #F5F8FB;
+	color: #2B4157;
+	font-weight: normal;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+.Xfooter5 {
+	background-color: #F5F8FB;
+	color: #2B4157;
+	font-weight: normal;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+
+.Xcontainer6 {
+	border: 0px;
+}
+.Xtitle6 {
+	background-color: white;
+	color: #2B4157;
+	font-weight: bold;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+.Xcontent6 {
+	padding: 0px;
+	background-color: white;
+	color: #2B4157;
+	font-weight: normal;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+.Xfooter6 {
+	background-color: white;
+	color: #2B4157;
+	font-weight: normal;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+
+.Xcontentfreeform {
+	background-color: white;
+	color: #2B4157;
+	font-weight: normal;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+}
+
+.Xiframe {}
+.Xpage {}
+.Xpagetop {}
+.Xpagebottom {}
+.Xspacer {}
+.Xpageleft {}
+.Xpagemiddle {}
+.Xpageright {}

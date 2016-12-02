@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Ensight email campaign workflow setup -->
+<workflow>
+	<roles>
+		<!-- Define campaign roles -->
+		<role>
+			<name>Contributor</name>
+			<code>C</code>
+			<next type="role">Reviewer</next>
+		</role>
+		<role>
+			<name>Reviewer</name>
+			<code>R</code>
+			<next type="role">Publisher</next>
+		</role>
+		<role>
+			<name>Publisher</name>
+			<code>P</code>
+			<next type="stop" />
+		</role>
+		<!-- The default role is mandatory -->
+		<default>C</default>
+	</roles>
+	<users>
+		<!-- Specific users can be added to this list -->
+		<user id="1">
+			<role>Publisher</role>
+		</user>
+	</users>
+</workflow>

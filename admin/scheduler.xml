@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<!-- Use this file to customise Ensight schedules -->
+<!-- Note: entries in this file will be overwritten by the scheduler itself, rather update it via the admin tool -->
+<scheduler>
+	<version>4.1</version>
+	<document_root><![CDATA[DOCUMENT_ROOT_GOES_HERE]]></document_root>
+	<cli_prefix><![CDATA[/usr/local/zend/bin/php -q -c /usr/local/zend/etc -d max_execution_time=0]]></cli_prefix>
+	<cli_suffix><![CDATA[>> error-new.log 2>&1 &]]></cli_suffix>
+	<trigger>
+		<id>358eafb8dd944e5aa0c1dda9139da2c3</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-synchronise.php 1x123298124365188 --download</script>
+		<note>Added through Conversations</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>BusinessHours</hours>
+		<minutes>%5</minutes>
+		<weekday>Weekdays</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run>2014-06-25 08:45:00</last_run>
+	</trigger>
+	<trigger>
+		<id>61d0a959097489ef4cba57b34f19401a</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-synchronise.php 1x123298124365188 --download</script>
+		<note>Added through Conversations</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>AfterHours</hours>
+		<minutes>%30</minutes>
+		<weekday>Weekdays</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run>2014-06-23 07:30:00</last_run>
+	</trigger>
+	<trigger>
+		<id>f266cc7a6e35c605cb9536944d158b42</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-synchronise.php 1x123298124365188 --download</script>
+		<note>Added through Conversations</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>*</hours>
+		<minutes>0</minutes>
+		<weekday>Weekends</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run>2014-06-22 23:00:00</last_run>
+	</trigger>
+	<trigger>
+		<id>d7c2cd4a69d4becacbb25c676555fc72</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-synchronise.php 2x27739207 --download</script>
+		<note>Added through Conversations</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>BusinessHours</hours>
+		<minutes>%5</minutes>
+		<weekday>Weekdays</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run>2014-06-25 08:45:00</last_run>
+	</trigger>
+	<trigger>
+		<id>a95ff7bf94134914dfa455000baf2090</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-synchronise.php 2x27739207 --download</script>
+		<note>Added through Conversations</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>AfterHours</hours>
+		<minutes>%30</minutes>
+		<weekday>Weekdays</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run>2014-06-23 07:30:00</last_run>
+	</trigger>
+	<trigger>
+		<id>b22ae17305290f9b3b2f34176d54fa26</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-synchronise.php 2x27739207 --download</script>
+		<note>Added through Conversations</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>*</hours>
+		<minutes>0</minutes>
+		<weekday>Weekends</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run>2014-06-22 23:00:00</last_run>
+	</trigger>
+	<trigger>
+		<id>f932a5be570b9069a939a0852eaa26aa</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-synchronise.php 1x149826871752731 --download</script>
+		<note>Added through Conversations</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>BusinessHours</hours>
+		<minutes>%5</minutes>
+		<weekday>Weekdays</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run>2014-06-25 08:45:00</last_run>
+	</trigger>
+	<trigger>
+		<id>5c86f9d6600ed24f854d3f013b8b1343</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-synchronise.php 1x149826871752731 --download</script>
+		<note>Added through Conversations</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>AfterHours</hours>
+		<minutes>%30</minutes>
+		<weekday>Weekdays</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run>2014-06-23 07:30:00</last_run>
+	</trigger>
+	<trigger>
+		<id>c0351bc0ee283c1dd7d46bfe2792fef6</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-synchronise.php 1x149826871752731 --download</script>
+		<note>Added through Conversations</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>*</hours>
+		<minutes>0</minutes>
+		<weekday>Weekends</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run>2014-06-22 23:00:00</last_run>
+	</trigger>
+	<trigger>
+		<id>cb64b27deb83dbd1d1c0ae45c901bc1e</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-synchronise-verify.php</script>
+		<note>Added manually</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>*</hours>
+		<minutes>0</minutes>
+		<weekday>*</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run>2014-06-23 13:00:00</last_run>
+	</trigger>
+	<trigger>
+		<id>548da9fae4cc3801af60e7b28ae24699</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-synchronise.php 2x32352841 --download</script>
+		<note>Added through Conversations</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>BusinessHours</hours>
+		<minutes>%5</minutes>
+		<weekday>Weekdays</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run>2014-06-25 08:45:00</last_run>
+	</trigger>
+	<trigger>
+		<id>65b013de105c67e7da23d3ba884e0562</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-synchronise.php 2x32352841 --download</script>
+		<note>Added through Conversations</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>AfterHours</hours>
+		<minutes>%30</minutes>
+		<weekday>Weekdays</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run>2014-06-23 07:30:00</last_run>
+	</trigger>
+	<trigger>
+		<id>1cb0d84dd6278ab7bc5d0efaa902119f</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-synchronise.php 2x32352841 --download</script>
+		<note>Added through Conversations</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>*</hours>
+		<minutes>0</minutes>
+		<weekday>Weekends</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run>2014-06-22 23:00:00</last_run>
+	</trigger>
+	<trigger>
+		<id>bf888a2d80288eaf16759c39e79f0fb6</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-report-synch.php 2x32352841</script>
+		<note>Added manually</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>0</hours>
+		<minutes>5</minutes>
+		<weekday>*</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run>2014-06-23 00:05:00</last_run>
+	</trigger>
+	<trigger>
+		<id>dd8d2bded8f9208c9318e34430ee89aa</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-synchronise.php 2x32352841 --download</script>
+		<note>Added through Conversations</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>BusinessHours</hours>
+		<minutes>%5</minutes>
+		<weekday>Weekdays</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run>2014-06-25 08:45:00</last_run>
+	</trigger>
+	<trigger>
+		<id>7d7ccf445c0df55ff94da0290b47169d</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-synchronise.php 2x32352841 --download</script>
+		<note>Added through Conversations</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>AfterHours</hours>
+		<minutes>%30</minutes>
+		<weekday>Weekdays</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run></last_run>
+	</trigger>
+	<trigger>
+		<id>e9389d33d2fb717b00a665169c3ac6fc</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-synchronise.php 2x32352841 --download</script>
+		<note>Added through Conversations</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>*</hours>
+		<minutes>0</minutes>
+		<weekday>Weekends</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run></last_run>
+	</trigger>
+	<trigger>
+		<id>9ed4f262a07e4c5bb0c8aa235e55b25b</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-report-synch.php 2x32352841</script>
+		<note>Added manually</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>0</hours>
+		<minutes>5</minutes>
+		<weekday>*</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run></last_run>
+	</trigger>
+	<trigger>
+		<id>f64558c52826740d981afe7522f71c15</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-synchronise.php 3xwiux4fOu6o --download</script>
+		<note>Added through Conversations</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>BusinessHours</hours>
+		<minutes>%5</minutes>
+		<weekday>Weekdays</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run>2014-06-25 08:45:00</last_run>
+	</trigger>
+	<trigger>
+		<id>595865d0c228ca590911e2c2598ef0c6</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-synchronise.php 3xwiux4fOu6o --download</script>
+		<note>Added through Conversations</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>AfterHours</hours>
+		<minutes>%30</minutes>
+		<weekday>Weekdays</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run></last_run>
+	</trigger>
+	<trigger>
+		<id>1763e97ef0819fc414ba65f67d6389ca</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-synchronise.php 3xwiux4fOu6o --download</script>
+		<note>Added through Conversations</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>*</hours>
+		<minutes>0</minutes>
+		<weekday>Weekends</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run></last_run>
+	</trigger>
+	<trigger>
+		<id>2edfdeb3eae32d762e377ac7a449b8d2</id>
+		<script>[DOCUMENT_ROOT]/live/admin/VMM-report-synch.php 3xwiux4fOu6o</script>
+		<note>Added manually</note>
+		<year>*</year>
+		<month>*</month>
+		<day>*</day>
+		<hours>10</hours>
+		<minutes>5</minutes>
+		<weekday>*</weekday>
+		<timezone>GMT</timezone>
+		<remove_after>-1</remove_after>
+		<last_run></last_run>
+	</trigger>
+</scheduler>

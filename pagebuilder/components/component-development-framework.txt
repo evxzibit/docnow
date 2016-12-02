@@ -1,0 +1,67 @@
+NEVER overwrite a global variable from within a component, unless you wish to set the default for all other components on the page - rather create a duplicate such as $_Var.
+
+The following GLOBAL variables are available within a PAGE (but should not be overwritten):
+
+	$Filename - string, the page's filename
+	$Config - array, the page's configuration record
+	$PageTitle - string, the page's title
+	$Theme - string, the page's theme name (grid-style only)
+	$Keywords - string, the selected keywords (grid-style only)
+	$Description - string, the selected description (grid-style only)
+	$Header - string, the optional header file (relative to ROOT_FILES)
+	$Footer - string, the optional footer file (relative to ROOT_FILES)
+	$Top - boolean, whether to show the top area (grid-style only)
+	$Bottom - boolean, whether to show the bottom area (grid-style only)
+	$Left - boolean, whether to show the left area (grid-style only)
+	$Right - boolean, whether to show the right area (grid-style only)
+	$EditMode - boolean, whether or not the page is in edit mode
+	$Profile_ID - numeric, the user's profile identifier
+	$Session_ID - string, the user's session identifier
+	$UserStatus - numeric, the user's profile status level
+
+The following LOCAL variables are available within a PAGE (but should not be overwritten):
+
+	$ID - numeric, the container identifier (or 0 if embedded within content)
+	$Container - array, the container's configuration record (not set when embedded within content)
+	$Parameters - string, the component's predefined parameters setting
+	$Content - string, the component's filename (including path)
+	$IncludePath - boolean, whether to use absolute or relative URLs in links and forms
+
+----------------------------------
+
+The following GLOBAL variables are available within a MESSAGE (but should not be overwritten):
+
+	$Mail_ID - numeric, if called from within an e-mail, the message's unique identifier
+	$Text_ID - numeric, if called from within a text message, the message's unique identifier
+	$Message - array, the message details
+	$PEmailTo - string, the recipient's e-mail address
+	$PMobileTo - string, the recipient's mobile number
+	$WhoFrom - string, who the message is sent from (processed)
+	$ReplyTo - string, who the message should be replied to (processed)
+	$PTextMessage - string, the text version of the message (e-mail only, processed)
+	$PHTMLMessage - string, the HTML version of the message (e-mail only, processed)
+	$PTextBody - string, the text version of the message (SMS only, processed)
+	$PSubject - string, the subject line of the message (processed)
+	$Profile_ID - numeric, the recipient's profile identifier
+	$UserStatus - numeric, the user's profile status level
+
+The following LOCAL variables are available within a MESSAGE/CONTENT (but should not be overwritten):
+
+	$Tag - array, the fusion tag that called the component
+		$Tag['category_id']
+		$Tag['item_id']
+		$Tag['reference_id']
+		$Tag['page']
+		$Tag['instance_id']
+		$Tag['origin']
+		$Tag['include_path']
+		$Tag['version']
+	$ParametersArray - array, a list of parameters passed to the fusion processor
+	$ParametersArray['ContentType'] - string, indicates 'text/plain' or 'text/html' content types, corresponding to the processor used (FusionText for text/plain, default for text/html)
+	$Profile_ID - numeric, the recipient's profile identifier
+	$ID - numeric, the number 0
+	$Container - unset
+	$Parameters - string, the component's predefined parameters setting
+	$Content - string, the component's filename (including path)
+	$IncludePath - boolean, whether to use absolute or relative URLs in links and forms
+

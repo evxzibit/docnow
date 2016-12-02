@@ -1,0 +1,72 @@
+._smx-overlay {
+	border: 1px dashed #33dd22 !important;
+	cursor: pointer;
+	z-index: 50;
+}
+._smx-edit-link, ._smx-edit-rtext, ._smx-edit-title, ._smx-edit-image, ._smx-edit-form, ._smx-edit-that {
+}
+._smx-repeater {
+	border: 1px dashed #dddd00 !important;
+	cursor: default;
+	z-index: 50;
+}
+._smx-outlined {
+	border: 1px double #ffff00 !important;
+}
+._smx-selected {
+	border: 1px dashed #3322ff !important;
+}
+.buttonBar {
+	display: none;
+	position: absolute;
+	width: 120px;
+	height: 48px;
+	z-index: 1500;
+}
+.buttonBar div {
+	margin-top: 5px;
+}
+.buttonBar ul {
+	padding: 5px 5px 5px 8px;
+	width: 106px;
+	background-color: #f3f3f3;
+	border: 1px solid #aaaaaa;
+	margin: 0px 0 0 5px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 3px 25px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 6px;
+	box-shadow: rgba(0, 0, 0, 0.3) 0 1px 6px;
+	list-style: none;
+	overflow: auto;
+}
+.buttonBar ul li {
+	background: #ffffff;
+	float: left;
+	margin: 0 2px 0 0;
+	padding: 3px 3px 0px 3px;
+	border: 1px solid #cccccc;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	cursor: pointer;
+	height: 20px;
+}
+.buttonBar ul li:hover {
+	border: 1px groove #666666;
+}
+.buttonBar ul li img.shaded {
+	filter: progid:DXImageTransform.Microsoft.Alpha(style = 0, opacity = 20);
+	-moz-opacity:.20;
+	opacity:.20;
+	width: 100%;
+	background-color: #ffffff;
+}
+#OuterEditor {
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+	padding: 10px 0;
+	margin-bottom: 5px;
+}
+#iHTMLEditor {
+	float: right;
+	margin-bottom: 10px;
+}

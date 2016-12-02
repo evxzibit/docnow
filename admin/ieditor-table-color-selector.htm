@@ -1,0 +1,327 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Set Color</title>
+	<style>
+	td {
+		color: #000000; font-family: Verdana,Arial,Helvetica; font-size: 11px
+	}
+	small {
+		font-size: 11px
+	}
+	big {
+		font-size: 13px; font-weight: bold
+	}
+	input {
+		font-family: Verdana; font-size: 11px
+	}
+	textarea {
+		font-family: Verdana; font-size: 11px
+	}
+	select {
+		font-family: Verdana; font-size: 11px
+	}
+	b {
+		font-weight: bold
+	}
+	i {
+		color: #ff6600; font-style: normal
+	}
+	a:link {
+		color: #000000
+	}
+	a:active {
+		color: #3333cc
+	}
+	a:visited {
+		color: #000000
+	}
+	a:hover {
+		color: #ff6600
+	}
+	td.ColorCell {
+		width: 15px;
+		height: 12px;
+		font-size: 1px;
+		cursor: pointer;
+	}
+	</style>
+	<script language="JavaScript" type="text/javascript">if (document.all) { document.write ("<meta http-equiv=\"MSThemeCompatible\" content=\"No\" />"); }</script>
+	<script>
+	<!--
+	//--- Error handler
+	window.onerror = ProcessError;
+
+	function ProcessError (Message, URL, Line) {
+	//--- Handles errors
+
+		OColor = '#FFFFFF'; return true;
+
+	}
+
+	var TableForm = (top.modalWindows.windowArguments ? top.modalWindows.windowArguments : window.parent.WindowArguments);
+
+	//--- Save original color
+	var OColor = 0;
+
+	//--- Web safe colors
+	WebColors = new Array (
+		"#00FF00", "#00FF33", "#00FF66", "#00FF99", "#00FFCC", "#00FFFF", "#00CC00", "#00CC66", "#00CC66", "#00CC99", "#00CCCC", "#00CCFF", "#009900", "#009933", "#009966", "#009999", "#0099CC", "#0099FF", 
+		"#33FF00", "#33FF33", "#33FF66", "#33FF99", "#33FFCC", "#33FFFF", "#33CC00", "#33CC33", "#33CC66", "#33CC99", "#33CCCC", "#33CCFF", "#339900", "#339933", "#339966", "#339999", "#3399CC", "#3399FF", 
+		"#66FF00", "#66FF33", "#66FF66", "#66FF99", "#66FFCC", "#66FFFF", "#66CC00", "#66CC33", "#66CC66", "#66CC99", "#66CCCC", "#66CCFF", "#669900", "#669933", "#669966", "#669999", "#6699CC", "#6699FF", 
+		"#99FF00", "#99FF33", "#99FF66", "#99FF99", "#99FFCC", "#99FFFF", "#99CC00", "#99CC33", "#99CC66", "#99CC99", "#99CCCC", "#99CCFF", "#999900", "#999933", "#999966", "#999999", "#9999CC", "#9999FF", 
+		"#CCFF00", "#CCFF33", "#CCFF66", "#CCFF99", "#CCFFCC", "#CCFFFF", "#CCCC00", "#CCCC33", "#CCCC66", "#CCCC99", "#CCCCCC", "#CCCCFF", "#CC9900", "#CC9933", "#CC9966", "#CC9999", "#CC99CC", "#CC99FF", 
+		"#FFFF00", "#FFFF33", "#FFFF66", "#FFFF99", "#FFFFCC", "#FFFFFF", "#FFCC00", "#FFCC33", "#FFCC66", "#FFCC99", "#FFCCCC", "#FFCCFF", "#FF9900", "#FF9933", "#FF9966", "#FF9999", "#FF99CC", "#FF99FF", 
+		"#006600", "#006633", "#006666", "#006699", "#0066CC", "#0066FF", "#003300", "#003333", "#003366", "#003399", "#0033CC", "#0033FF", "#000000", "#000033", "#000066", "#000099", "#0000CC", "#0000FF", 
+		"#336600", "#336633", "#336666", "#336699", "#3366CC", "#3366FF", "#333300", "#333333", "#333366", "#333399", "#3333CC", "#3333FF", "#330000", "#330033", "#330066", "#330099", "#3300CC", "#3300FF", 
+		"#666600", "#666633", "#666666", "#666699", "#6666CC", "#6666FF", "#663300", "#663333", "#663366", "#663399", "#6633CC", "#6633FF", "#660000", "#660033", "#660066", "#660099", "#6600CC", "#6600FF", 
+		"#996600", "#996633", "#996666", "#996699", "#9966CC", "#9966FF", "#993300", "#993333", "#993366", "#993399", "#9933CC", "#9933FF", "#990000", "#990033", "#990066", "#990099", "#9900CC", "#9900FF", 
+		"#CC6600", "#CC6633", "#CC6666", "#CC6699", "#CC66CC", "#CC66FF", "#CC3300", "#CC3333", "#CC3366", "#CC3399", "#CC33CC", "#CC33FF", "#CC0000", "#CC0033", "#CC0066", "#CC0099", "#CC00CC", "#CC00FF", 
+		"#FF6600", "#FF6633", "#FF6666", "#FF6699", "#FF66CC", "#FF66FF", "#FF3300", "#FF3333", "#FF3366", "#FF3399", "#FF33CC", "#FF33FF", "#FF0000", "#FF0033", "#FF0066", "#FF0099", "#FF00CC", "#FF00FF",
+		"#FFFFFF", "#DDDDDD", "#C0C0C0", "#969696", "#808080", "#646464", "#4B4B4B", "#242424", "#000000"
+	);
+
+	//--- Preset named colors array
+	NamedColors = new Array (
+		"aliceblue", "antiquewhite", "aqua", "aquamarine", "azure", "beige",
+		"bisque", "black", "blanchedalmond", "blue", "blueviolet", "brown",
+		"burlywood", "cadetblue", "chartreuse", "chocolate", "coral", 
+		"cornflowerblue", "cornsilk", "crimson", "cyan", "darkblue", "darkcyan",
+		"darkgoldenrod", "darkgray", "darkgreen", "darkkhaki", "darkmagenta",
+		"darkolivegreen", "darkorange", "darkorchid", "darkred", "darksalmon",
+		"darkseagreen", "darkslateblue", "darkslategray", "darkturquoise",
+		"darkviolet", "deeppink", "deepskyblue", "dimgray", "dodgerblue",
+		"firebrick", "floralwhite", "forestgreen", "fuchsia", "gainsboro",
+		"ghostwhite", "gold", "goldenrod", "gray", "green", "greenyellow",
+		"honeydew", "hotpink", "indianred", "indigo", "ivory", "khaki",
+		"lavender", "lavenderblush", "lawngreen", "lemonchiffon", "lightblue",
+		"lightcoral", "lightcyan", "lightgoldenrodyellow", "lightgreen",
+		"lightgrey", "lightpink", "lightsalmon", "lightseagreen", "lightskyblue",
+		"lightslategray", "lightsteelblue", "lightyellow", "lime", "limegreen",
+		"linen", "magenta", "maroon", "mediumaquamarine", "mediumblue", 
+		"mediumorchid", "mediumpurple", "mediumseagreen", "mediumslateblue",
+		"mediumspringgreen", "mediumturquoise", "mediumvioletred",
+		"midnightblue", "mintcream", "mistyrose", "moccasin", "navajowhite",
+		"navy", "oldlace", "olive", "olivedrab", "orange", "orangered","orchid",
+		"palegoldenrod", "palegreen", "paleturquoise", "palevioletred",
+		"papayawhip", "peachpuff", "peru", "pink", "plum", "powderblue",
+		"purple", "red", "rosybrown", "royalblue", "saddlebrown", "salmon",
+		"sandybrown", "seagreen", "seashell", "sienna", "silver", "skyblue",
+		"slateblue", "slategray", "snow", "springgreen", "steelblue", "tan",
+		"teal", "thistle", "tomato", "turquoise", "violet", "wheat", "white",
+		"whitesmoke", "yellow", "yellowgreen"
+	);
+
+	HexColors = new Array (
+		"#F0F8FF", "#FAEBD7", "#00FFFF", "#7FFFD4", "#F0FFFF", "#F5F5DC", "#FFE4C4", 
+		"#000000", "#FFEBCD", "#0000FF", "#8A2BE2", "#A52A2A", "#DEB887", "#5F9EA0", 
+		"#7FFF00", "#D2691E", "#FF7F50", "#6495ED", "#FFF8DC", "#DC143C", "#00FFFF", 
+		"#00008B", "#008B8B", "#B8860B", "#A9A9A9", "#006400", "#BDB76B", "#8B008B", 
+		"#556B2F", "#FF8C00", "#9932CC", "#8B0000", "#E9967A", "#8FBC8B", "#483D8B", 
+		"#2F4F4F", "#00CED1", "#9400D3", "#FF1493", "#00BFFF", "#696969", "#1E90FF", 
+		"#B22222", "#FFFAF0", "#228B22", "#FF00FF", "#DCDCDC", "#F8F8FF", "#FFD700", 
+		"#DAA520", "#808080", "#008000", "#ADFF2F", "#F0FFF0", "#FF69B4", "#CD5C5C", 
+		"#4B0082", "#FFFFF0", "#F0E68C", "#E6E6FA", "#FFF0F5", "#7CFC00", "#FFFACD", 
+		"#ADD8E6", "#F08080", "#E0FFFF", "#FAFAD2", "#90EE90", "#D3D3D3", "#FFB6C1", 
+		"#FFA07A", "#20B2AA", "#87CEFA", "#778899", "#B0C4DE", "#FFFFE0", "#00FF00", 
+		"#32CD32", "#FAF0E6", "#FF00FF", "#800000", "#66CDAA", "#0000CD", "#BA55D3", 
+		"#9370DB", "#3CB371", "#7B68EE", "#00FA9A", "#48D1CC", "#C71585", "#191970", 
+		"#F5FFFA", "#FFE4E1", "#FFE4B5", "#FFDEAD", "#000080", "#FDF5E6", "#808000", 
+		"#6B8E23", "#FFA500", "#FF4500", "#DA70D6", "#EEE8AA", "#98FB98", "#AFEEEE", 
+		"#DB7093", "#FFEFD5", "#FFDAB9", "#CD853F", "#FFC0CB", "#DDA0DD", "#B0E0E6", 
+		"#800080", "#FF0000", "#BC8F8F", "#4169E1", "#8B4513", "#FA8072", "#F4A460", 
+		"#2E8B57", "#FFF5EE", "#A0522D", "#C0C0C0", "#87CEEB", "#6A5ACD", "#708090", 
+		"#FFFAFA", "#00FF7F", "#4682B4", "#D2B48C", "#008080", "#D8BFD8", "#FF6347", 
+		"#40E0D0", "#EE82EE", "#F5DEB3", "#FFFFFF", "#F5F5F5", "#FFFF00", "#9ACD32"
+	);
+
+	function PadString (Text, Length) {
+	//--- Pads a string with zero's
+
+		for (i = Text.length; i < Length; i++) {
+			Text = '0' + Text;
+		}
+		return Text;
+
+	}
+
+	function GetColorHex (ColorCode) {
+	//--- Converts the various browser formats to a consistent hex value
+
+		ffmatch = /^rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)$/;
+		iematch = /^#(\w{2})(\w{2})(\w{2})$/;
+
+		if (document.all) {
+			match = iematch.exec (ColorCode);
+			if (match) {
+				return '#' + PadString (match[1]) + PadString (match[2]) + PadString (match[3]);
+			}
+		} else {
+			match = ffmatch.exec (ColorCode);
+			if (match) {
+				return '#' + PadString (parseInt (match[1]).toString (16), 2) + PadString (parseInt (match[2]).toString (16), 2) + PadString (parseInt (match[3]).toString (16), 2);
+			}
+		}
+
+		return '';
+
+	}
+
+	function EditSelected () {
+	//--- Initializes the dialog box
+
+		TDialog = document.DialogEditor;
+
+		SelectedColor = TableForm.value;
+
+		if (SelectedColor !== null) {
+			if (SelectedColor.substr (0, 1) == '#') {
+				SelectedColor = '#' + PadString (SelectedColor.substr (1, 6), 6);
+				SelectedColor = SelectedColor.toUpperCase ();
+			}
+		} else {
+			SelectedColor = '000000';
+		}
+
+		//--- Remember original color
+		OColor = SelectedColor;
+
+		//--- Preset color
+		document.getElementById ('ColorBox').style.backgroundColor = SelectedColor;
+		document.getElementById ('ColorOld').style.backgroundColor = SelectedColor;
+		document.getElementById ('ColorName').innerHTML = SelectedColor;
+		document.getElementById ('LastColor').innerHTML = SelectedColor;
+
+	}
+
+	function BuildColorBox (Palette) {
+	//--- Builds a color box with preset colors
+
+		var ItemsPerRow = 18;
+		var HTML = "<tr>";
+
+		for (Cell = 1; Cell <= Palette.length; Cell++) {
+
+			HTML += "<td class='ColorCell' style='background-color: " + Palette[Cell - 1] + "; border: 1px outset " + Palette[Cell - 1] + ";'>&nbsp;</td>\n";
+			if (Cell % ItemsPerRow == 0) {
+				HTML += "</tr>\n<tr>";
+			}
+
+		}
+
+		return "</tr>" + HTML;
+
+	}
+
+	function MouseOverColorBox (e) {
+	//--- What to do when the mouse moves over the color box
+
+		if (window.event) {
+			TEvent = window.event.srcElement;
+		} else {
+			TEvent = e.target;
+		}
+		TColor = GetColorHex (TEvent.style.backgroundColor);
+
+		if (TColor != '') {
+			document.getElementById ('ColorBox').style.backgroundColor = TColor;
+			document.getElementById ('ColorName').innerHTML = TColor.toUpperCase ();
+			TEvent.style.borderColor = 'white';
+		}
+
+	}
+
+	function MouseOffColorBox (e) {
+	//--- What to do when the mouse moves away from the color box
+
+		if (window.event) {
+			TEvent = window.event.srcElement;
+		} else {
+			TEvent = e.target;
+		}
+		TColor = GetColorHex (TEvent.style.backgroundColor);
+
+		if (OColor != '') {
+			document.getElementById ('ColorBox').style.backgroundColor = OColor;
+			document.getElementById ('ColorName').innerHTML = OColor;
+		}
+
+		TEvent.style.borderColor = TColor;
+
+	}
+
+	function MouseClickColorBox (e) {
+	//--- What to do when the mouse gets clicked on the color box
+
+		if (window.event) {
+			TEvent = window.event.srcElement;
+		} else {
+			TEvent = e.target;
+		}
+		TColor = GetColorHex (TEvent.style.backgroundColor);
+
+		TableForm.value = TColor.toUpperCase ();
+		top.modalWindows.closeWindow ();
+
+	}
+	//-->
+	</script>
+</head>
+
+<body bgcolor="#ffffff" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0" onload="EditSelected (); window.focus ()">
+
+<script>
+top.modalWindows.attachKeyHandler (document); // assign ESCape key
+</script>
+
+<form name="DialogEditor" onsubmit="return false;">
+
+<table border="0" cellpadding="2" cellspacing="2" width="100%">
+<tr>
+	<td colspan="18">
+	<b>
+	<script>
+	<!--
+	document.write ('Set Color');
+	//-->
+	</script>
+	</b>
+	</td>
+</tr>
+<tr valign="middle">
+	<td colspan="18">
+
+	<table border="0" cellpadding="0" cellspacing="0" onmouseover="MouseOverColorBox (event)" onmouseout="MouseOffColorBox (event)" onclick="MouseClickColorBox (event)" style="width: 240px;">
+	<script>
+	<!--
+	document.write (BuildColorBox (WebColors));
+	//-->
+	</script>
+	</table>
+
+	</td>
+</tr>
+<tr valign="middle">
+	<td colspan="18"><hr size="1" noshade="noshade" color="#cccccc" /></td>
+</tr>
+<tr valign="middle">
+	<td colspan="18">
+
+	<table border="0" cellpadding="2" cellspacing="2" width="100%" cols="4">
+	<tr>
+		<td width="20" id="ColorBox" style="border: 1px inset window; width: 20; height: 15; font-size: 2px;">&nbsp;</td>
+		<td width="65" id="ColorName"></td>
+		<td width="20" id="ColorOld" style="border: 1px inset window; width: 20; height: 15; font-size: 2px;">&nbsp;</td>
+		<td width="60" id="LastColor"></td>
+	</tr>
+	</table>
+
+	</td>
+</tr>
+</table>
+
+</form>
+
+</body>
+</html>

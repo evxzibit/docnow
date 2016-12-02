@@ -1,0 +1,7 @@
+<graph pieRadius='130' bgAlpha='0' pieYScale='50' pieSliceDepth='13' showLegend='1' showValues='0' showNames='1' decimalPrecision='2' chartLeftMargin='0' chartRightMargin='0' chartTopMargin='0'>
+	<set name='Leverling' value='100524' color='AFD8F8' />
+	<set name='Fuller' value='87790' color='FF0000' />
+	<set name='Davolio' value='81898' color='F6BD0F' />
+	<set name='Peacock' value='76438' color='8BBA00' />
+	<set name='Callahan' value='55091' color='A66EDD' />
+</graph>

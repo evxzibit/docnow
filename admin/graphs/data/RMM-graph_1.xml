@@ -1,0 +1,68 @@
+<graph bgAlpha='0,0' xAxisName="" yAxisName="" numberPrefix="" showNames="0" canvasBorderThickness="0" showLegend="0" showValues="0" areaAlpha="70" numVDivLines="0" showAlternateHGridColor="0" formatNumberScale="0" decimalPrecision="0" limitsdecimalPrecision="0" divlinedecimalPrecision="0" numberSuffix="" chartLeftMargin="5" chartRightMargin="10" chartTopMargin="15" chartBottomMargin="30" showDivLineValue="0" showLimits="0">
+<categories>
+	<category name="Dec 6" showName="0" hoverText="Dec 6 2011"/>
+	<category name="Dec 7" showName="0" hoverText="Dec 7 2011"/>
+	<category name="Dec 8" showName="0" hoverText="Dec 8 2011"/>
+	<category name="Dec 9" showName="0" hoverText="Dec 9 2011"/>
+	<category name="Dec 10" showName="1" hoverText="Dec 10 2011"/>
+	<category name="Dec 11" showName="0" hoverText="Dec 11 2011"/>
+	<category name="Dec 12" showName="0" hoverText="Dec 12 2011"/>
+	<category name="Dec 13" showName="0" hoverText="Dec 13 2011"/>
+	<category name="Dec 14" showName="0" hoverText="Dec 14 2011"/>
+	<category name="Dec 15" showName="1" hoverText="Dec 15 2011"/>
+	<category name="Dec 16" showName="0" hoverText="Dec 16 2011"/>
+	<category name="Dec 17" showName="0" hoverText="Dec 17 2011"/>
+	<category name="Dec 18" showName="0" hoverText="Dec 18 2011"/>
+	<category name="Dec 19" showName="0" hoverText="Dec 19 2011"/>
+	<category name="Dec 20" showName="0" hoverText="Dec 20 2011"/>
+	<category name="Dec 21" showName="1" hoverText="Dec 21 2011"/>
+	<category name="Dec 22" showName="0" hoverText="Dec 22 2011"/>
+	<category name="Dec 23" showName="0" hoverText="Dec 23 2011"/>
+	<category name="Dec 24" showName="0" hoverText="Dec 24 2011"/>
+	<category name="Dec 25" showName="0" hoverText="Dec 25 2011"/>
+	<category name="Dec 26" showName="0" hoverText="Dec 26 2011"/>
+	<category name="Dec 27" showName="1" hoverText="Dec 27 2011"/>
+	<category name="Dec 28" showName="0" hoverText="Dec 28 2011"/>
+	<category name="Dec 29" showName="0" hoverText="Dec 29 2011"/>
+	<category name="Dec 30" showName="0" hoverText="Dec 30 2011"/>
+	<category name="Dec 31" showName="0" hoverText="Dec 31 2011"/>
+	<category name="Jan 1" showName="0" hoverText="Jan 1 2012"/>
+	<category name="Jan 2" showName="1" hoverText="Jan 2 2012"/>
+	<category name="Jan 3" showName="0" hoverText="Jan 3 2012"/>
+	<category name="Jan 4" showName="0" hoverText="Jan 4 2012"/>
+	<category name="Jan 5" showName="0" hoverText="Jan 5 2012"/>
+</categories>
+<dataset seriesName="ensightdev (Twitter)" color="a66edd" areaBorderColor="a66edd" areaBorderThickness="2" showValues="0">
+	<set value='1250'/>
+	<set value='830'/>
+	<set value='1111'/>
+	<set value='1061'/>
+	<set value='713'/>
+	<set value='295'/>
+	<set value='1125'/>
+	<set value='1277'/>
+	<set value='937'/>
+	<set value='1024'/>
+	<set value='940'/>
+	<set value='612'/>
+	<set value='436'/>
+	<set value='949'/>
+	<set value='857'/>
+	<set value='673'/>
+	<set value='213'/>
+	<set value='401'/>
+	<set value='325'/>
+	<set value='205'/>
+	<set value='386'/>
+	<set value='496'/>
+	<set value='161'/>
+	<set value='385'/>
+	<set value='124'/>
+	<set value='33'/>
+	<set value='222'/>
+	<set value='134'/>
+	<set value='55'/>
+	<set value='780'/>
+	<set value='0'/>
+</dataset>
+</graph>

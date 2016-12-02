@@ -1,0 +1,777 @@
+<?
+//--- ENVENT Module Source Code (EMSC)
+//--- First Created on Saturday, July 11 2000 by John Ginsberg
+//--- For ENSIGHT
+
+//--- Project Name:
+
+//--- Start Date:
+//--- Developers:
+
+//--- Module Name: Connect.PHP
+//--- Contains: None
+
+//--- Modified by:
+//--- Modified by:
+
+//--- Description:
+//--- Provides website global settings and configurations. Connects to
+//--- a database if DB.php is included.
+
+//--- Notes:
+//--- Separate definitions into globals and locals (area specific)
+
+//----------------------------------------------------------------
+
+define ("CONNECT_INCLUDED", 1);
+
+//----------------------------------------------------------------
+
+//--- Details of web site
+
+//--- Instructions:
+//--- ThisURL should be hardcoded, or set to 
+//--- "http://".GetVar ("HTTP_HOST") if dynamic -- all others must
+//--- be hardcoded. Ensure that Webmaster and MailBot are valid e-mail
+//--- addresses or mails won't be sent.
+//--- NEW: CookieDomain allows profiling to work across sub-domains
+
+define ("FriendlyName", "DocNow"); //--- Don't change manually, rather use the setup program
+define ("ThisURL", "http://docnow.ensighthq.com");
+define ("CookieDomain", "");
+
+//--- Default e-mails
+define ("Webmaster", "webmaster@docnow.ensighthq.com");
+define ("MailBot", "MAILBOT@nycthetruth.com");
+define ("Wapmaster", "+27835555555");
+define ("MobileBot", "+27835555555");
+
+//--- SMTP server
+define ("SMTPHost", "localhost");
+define ("SMTPPort", "25");
+//--- Uncomment these lines if authentication is required
+define ("SMTPUser", "");
+define ("SMTPPass", "");
+
+//--- Proxy server
+//--- Uncomment these lines if a proxy server is used to connect
+//--- to external sites
+define ("ProxyHost", "");
+define ("ProxyPort", "");
+$IgnoreProxyHosts = array ("");
+
+//--- Content defaults
+define ("DefaultLanguage", "en");
+define ("DefaultCharset", "UTF-8");
+define ("DefaultContentType", "text/html");
+
+//--- Regional settings
+define ("DefaultRegion", "ZA");
+
+//----------------------------------------------------------------
+
+//--- SEO Friendly URLs
+
+//--- Instructions:
+//--- Web server rewrite rules must be in place before enabling this feature.
+//--- Add the following to your vhost entry (apache 2.0 below, see support site for alternatives):
+//--- ====================================
+//--- RewriteEngine on
+//--- RewriteCond %{REQUEST_URI} !^/live
+//--- RewriteRule ^/c/([0-9]+)/([0-9a-z-]+)/(.*) /live/content.php?Category_ID=$1&$3 [E=REDIRECT_TARGET:/live/content.php]
+//--- RewriteRule ^/c/article/([0-9]+)/([0-9a-z-]+)/(.*) /live/content.php?Item_ID=$1&$3 [E=REDIRECT_TARGET:/live/content.php]
+//--- RewriteRule ^/m/([0-9]+)/([0-9a-z-]+)/(.*) /live/mobile.php?Category_ID=$1&$3 [E=REDIRECT_TARGET:/live/mobile.php]
+//--- RewriteRule ^/m/article/([0-9]+)/([0-9a-z-]+)/(.*) /live/mobile.php?Item_ID=$1&$3 [E=REDIRECT_TARGET:/live/mobile.php]
+//--- ====================================
+//--- Standard URLs will be rewritten as follows:
+//--- ...to web folder level:		http://www.domain.com/c/{id}/{description}/
+//--- ...to web item: 				http://www.domain.com/c/article/{id}/{description}/
+//--- ...to mobile folder level:	http://www.domain.com/m/{id}/{description}/
+//--- ...to mobile item:			http://www.domain.com/m/article/{id}/{description}/
+//--- You can change the URL format as required, but please change rewrite rules accordingly
+//--- ====================================
+//--- Use markers:
+//--- {id} - the link's Category_ID or Item_ID
+//--- {description} - the friendly name
+//--- {template} - template file (optional)
+//--- {path} - the folder path (if SEOCustomURLBase is defined)
+
+define ("SEOFriendlyLinks", "1");
+//--- Custom URLs
+$SEOCustomURLs = array (
+//	'http://www.domain.com' => '/web/www.domain.com',
+);
+define ("SEOCustomURLBaseFolder", ($SEOCustomURLs[$_SERVER['HTTP_HOST']] ? $SEOCustomURLs[$_SERVER['HTTP_HOST']] : "/web/content"));
+define ("SEOCustomURLPagePrefix", "/pages");
+define ("SEOCustomURLWebCategoryLink", "/{path}{description}");
+define ("SEOCustomURLWebItemLink", "/{path}{description}.html");
+define ("SEOCustomURLMobileCategoryLink", "/m/{path}{description}");
+define ("SEOCustomURLMobileItemLink", "/m/{path}{description}.html");
+define ("SEOCustomURLExtension", ".html");
+//--- Standard URLs
+define ("SEOFriendlyWebCategoryLink", "/c/{id}/{description}/");
+define ("SEOFriendlyWebItemLink", "/c/article/{id}/{description}/");
+define ("SEOFriendlyMobileCategoryLink", "/m/{id}/{description}/");
+define ("SEOFriendlyMobileItemLink", "/m/article/{id}/{description}/");
+
+//--- Do we automatically suggest canonical folder links for "Home" items inside a folder?
+define ("AutoCanonicalHomeItems", "0");
+
+//--- Do not touch these settings
+if (SEOFriendlyLinks) {
+	define ("COOKIE_PATH", "/");
+	define ("DefaultRedirectHandler", "SEORedirectHandler");
+} else {
+	define ("COOKIE_PATH", "");
+}
+
+//----------------------------------------------------------------
+
+//--- Application directories (no trailing slash)
+
+//--- Instructions:
+//--- Do not alter any settings below except DOCUMENT_ROOT
+//--- which must be the same as the configured /wwwroot or /htdocs
+//--- for this vhost
+
+define ("DOCUMENT_ROOT", "/mnt/data/apache/htdocs/docnow");
+define ("ROOT_FILES", DOCUMENT_ROOT."/live");
+define ("MODULE_FILES", DOCUMENT_ROOT."/live/modules");
+define ("ADMIN_FILES", DOCUMENT_ROOT."/live/admin");
+//--- Secondary
+define ("UPLOAD_FILES", DOCUMENT_ROOT."/upload");
+define ("IMAGE_FILES", DOCUMENT_ROOT."/images");
+define ("CONTENT_FILES", DOCUMENT_ROOT."/content");
+
+//----------------------------------------------------------------
+
+//--- Application URLs (full path - no trailing slash)
+
+//--- Instructions:
+//--- Do not alter any settings below except WWW_ROOT
+//--- which must contain any path information not already covered
+//--- by ThisURL (above) - this step is essential!
+
+define ("WWW_ROOT", ThisURL);
+define ("ROOT_URL", WWW_ROOT."/live");
+define ("MODULE_URL", WWW_ROOT."/live/modules");
+define ("ADMIN_URL", WWW_ROOT."/live/admin");
+//--- Secondary
+define ("UPLOAD_URL", WWW_ROOT."/upload");
+define ("IMAGE_URL", WWW_ROOT."/images");
+define ("CONTENT_URL", WWW_ROOT."/content");
+
+//----------------------------------------------------------------
+
+//--- PHP standalone (prefix/suffix)
+
+//--- Instructions:
+//--- Uncomment or comment out the lines appropriate to the operating
+//--- system that Ensight is running on. PHP version 4.2.x is recommended.
+//--- Note for Windows servers, PHP scripts (.php) must be associated with
+//--- the application /path/to/php-cli.exe as follows:
+//--- /path/to/php-cli.exe -q -d max_execution_time=0 "%1" %*
+//--- The addition of "-c /path/to/" php.ini might also be necessary
+
+define ("PHP_STANDALONE_PREFIX", "/usr/local/zend/bin/php -q -c /usr/local/zend/etc -d max_execution_time=0");
+define ("PHP_STANDALONE_SUFFIX", ">> error-new.log 2>&1 &");
+
+//----------------------------------------------------------------
+
+//--- Security Settings
+
+//--- Before re-connecting a user to a previously detected session, do we verify that their 
+//--- IP address has not changed? Enable this feature for maximum security.
+define ("HighSecurity", "0");
+
+//--- Enabling this feature will force every tracked link to an external website (via
+//--- click.php) to require a verification parameter (v=abcdef).
+define ("SecureClickTracking", "1");
+
+//--- Disable this feature to prevent automated CAPTCHA testing in any Standalone API module
+//--- that accepts form data. We recommend keeping it enabled unless there are problems.
+define ("EnableCAPTCHA", "0");
+
+//--- Protect the Standalone API modules from use by unauthorised third party websites. Only 
+//--- those sites listed in $ValidRefererDomains or with a valid API key can submit requests.
+define ("ValidateAPIReferer", "1");
+
+//--- if ValidateAPIReferer is set to 1, add a list of domains that may submit requests to the  
+//--- Standalone API. Domain names should begin with "http://".
+$ValidRefererDomains = array (
+	ThisURL
+);
+
+//--- Add a list of valid API authorisation codes, and IP addresses that can submit them. The key
+//--- can be any string, but a secure version generated by GenerateAPIKey () is recommended.
+$ValidAPIKeys = array (
+	// '127.0.0.1' => 'f0e8212b6bda3ced017c4659bd6ea90b',
+	'197.189.213.234' => 'f0e8212b6bda3ced017c4659bd6ea90b'
+);
+
+
+//----------------------------------------------------------------
+
+//--- Global Flags
+
+//--- Instructions:
+//--- Change the following flags as required - 1 means Yes and 0 
+//--- means No
+
+define ("TrackActions", "1");		// Do we enable activity logging on the site?
+define ("RememberMe", "1");
+define ("SmartMatching", "0");		// Do we try to identify guests without cookies?
+define ("KeepAlive", "0");			// Do we maintain cookies after users login?
+define ("ForceLogout", "0");		// Do we force users to logout before re-logging in?
+define ("SendReminders", "1");		// Do we e-mail password reminders to site users?
+define ("SendWelcome", "0");		// Do we send a welcome message to the user?
+define ("SendAdmin", "0");			// Do we send a welcome message to the site admin?
+define ("SessionCookies", "1");		// Do we use cookies for guest session identifiers?
+define ("EmailMessage", "1");		// Do we e-mail a copy of messages to recipients?
+define ("EmailAdmin", "1");			// Do we e-mail a copy of messages to the site admin?
+define ("EmailDirect", "1");		// Do we send the body of the message too?
+define ("CopyUserProfile", "0");	// Do we copy the user profile if it exists in both profiles?
+define ("ValidationLevel", "1");	// Do we secure profile activation?
+
+define ("EnableChannel", "1");
+define ("EnableCaching", "1");
+
+//--- Set "E" for E-mail or "M" for Mobile Telephone
+define ("LoginFlag", "E");
+
+//--- Comment out this feature if security is an issue, otherwise we recommend
+//--- leaving it in for more accurate tracking of unique user profiles
+define ("SmartMatchNoCookieProfiles", "1");
+
+//--- Uncomment these lines if you want to use <META> tags instead of
+//--- header redirects on pages specified below. MetaRedirect solves a known
+//--- setcookie bug found in IIS 3, 4 and 5
+//define ("UseMetaRedirect", "1");
+//$MetaRedirectPages = array ("monster.php", "LSM.php", "CPPM.php", "logout.php");
+
+//--- Admin Flags
+
+//--- Do we enable content version control in admin?
+define ("VersionControl", 1);
+//--- Which item copying method is pre-selected?
+define ("DefaultItemCopyingMethod", "3");
+//--- How is word wrapping handled in text area fields?
+define ("DefaultWordWrapping", "virtual");
+//--- Do we display the full item code in the explorer?
+define ("DisplayFullItemCode", 0);
+//--- Do we allow users to edit published content?
+define ("AllowEditingOfPublishedContent", 1);
+//--- Bind templates to the items that point to them?
+define ("BindTemplates", 1);
+//--- Bind shortcuts to the items they point to?
+define ("BindShortcuts", 1);
+//--- What is the maximum file size that can be uploaded?
+define ("MaxSizeOfUploadedFiles", 5000000);
+
+//----------------------------------------------------------------
+
+//--- User and admin timeouts (in seconds)
+
+define ("PROFILE_TIMEOUT", 3600*24*365); 	// How long a KeepAlive user account stays active (default = 1 year)
+define ("GUEST_TIMEOUT", 3600*24*365); 		// How long a guest account stays active (default = 1 year)
+define ("SESSION_TIMEOUT", 3600*4); 		// How long a non-admin session stays active (default = 4 hours)
+define ("ADMIN_TIMEOUT", 3600*8); 			// How long an admin session stays active (default = 8 hours - change for security)
+
+//--- Default object timeouts (in seconds)
+
+define ("CATALOG_TIMEOUT", 3600*24*365); 	// Default expiration for an item
+define ("REFERENCE_TIMEOUT", 3600*24*365); 	// Default expiration for a reference
+define ("INSTANCE_TIMEOUT", 3600*24*365); 	// Default expiration for an instance
+define ("MESSAGE_TIMEOUT", 3600*24*365); 	// Default expiration for a message
+define ("PREFERENCES_TIMEOUT", 3600*24*365);// Default expiration for a preference
+define ("FAVORITES_TIMEOUT", 3600*24*365);	// Default expiration for a favorite
+
+//--- Mail and text sending timeouts (in seconds)
+
+define ("NUMBER_OF_PROCESSES", 5);			// The number of processes to start in sequence
+define ("WAIT_TIMEOUT_AT", 20); 			// How many messages to send before taking a breather
+define ("WAIT_TIMEOUT", 10); 				// The number of seconds to wait at each rest point
+
+//----------------------------------------------------------------
+
+//--- Password information
+
+define ("PASSWORD_MIN", 4);		// Minimum number of characters
+define ("PASSWORD_MAX", 12);	// Maximum number of characters
+
+//----------------------------------------------------------------
+
+//--- Miscellaneous application definitions
+
+//--- Special purpose pages
+define ("HOME", "/");	// Default Home Page (Main)
+define ("SRCH", "/search/");	// Search Page
+define ("CPCM", ROOT_URL."/reg.php");	// Create Profile Capture Sub-Module
+define ("CPVM", "");	// Create Profile Verify Sub-Module
+define ("RLM", ROOT_URL."/login.php");		// Registration/Login Module
+define ("PRP", ROOT_URL."/login.php");		// Password Request Page
+define ("PHP", ROOT_URL."/home.php");		// Personal Home Page
+define ("PEM", ROOT_URL."/profile.php");		// Profile Editing Module
+define ("KPE", ROOT_URL."/content.php");		// Catalog Publishing Engine
+define ("MBX", "");		// Personal Mail Box
+define ("MDP", "");		// Message Display Page (Inbox)
+define ("PAB", "");		// Personal Address Book
+define ("CPE", ROOT_URL."/content.php");		// Content Publishing Engine
+define ("CPP", ROOT_URL."/content.php");		// Content Preview Page
+define ("MHP", ROOT_URL."/mobile.php");		// Mobile Home Page
+define ("MPE", ROOT_URL."/mobile-content.php");		// Mobile Content Publishing Engine
+define ("MKP", ROOT_URL."/mobile-catalog.php");		// Mobile Catalog Publishing Engine
+
+//--- Optional debug and error pages
+define ("DEBUG_PAGE", "");
+define ("ERROR_PAGE", "");
+
+$CustomFontStyles = array ("default", "H1", "H2", "H3", "H4", "H5", "ADDRESS", "PRE");
+
+//----------------------------------------------------------------
+
+//--- Mobile Settings
+
+//--- Switch to mobile friendly template if user is accessing 
+//--- via a mobile device instead of desktop
+define ("AutoDetectMobileDevices", "0");
+
+//--- Comment out the appropriate rows, and modify as necessary.
+//--- The 'web' array contains the URLs to test for (perl regexp is fully   
+//--- supported), while the 'mobile' array contains the converted URLs
+$AutoConvertWebURLs = array (
+	'web' => array (
+		'/\/c\/([0-9]+)\/([-0-9a-z]+)\//', 
+		'/\/c\/article\/([0-9]+)\/([-0-9a-z]+)\//',
+		'/^\/(?!(c|m)\/)([-0-9a-z\/.]+)/',
+		'/^\/(?!([-0-9a-z\/.]+)\/)/',
+	), 
+	'mobile' => array (
+		'/m/$1/$2/', 
+		'/m/article/$1/$2/',
+		'/m/$2',
+		'/m/', 
+	)
+);
+
+//----------------------------------------------------------------
+
+//--- PageBuilder Settings
+
+//--- Page
+define ("TMargin", "10");		//--- Top margin
+define ("LMargin", "10");		//--- Left-hand margin
+define ("BMargin", "0");		//--- Bottom margin
+define ("RMargin", "10");		//--- Right-hand margin
+define ("MarginSpace", "0");	//--- Add space on left/right of main row
+define ("BottomSpace", "1");	//--- Add space below bottom container
+define ("SpacerW", "10");		//--- Spacer width
+define ("SpacerH", "10");		//--- Spacer height
+
+//--- Defaults
+define ("DefaultBullet", "&#149;");
+define ("DefaultTheme", "standard");
+define ("IncHeader", "");
+define ("IncFooter", "");
+define ("XHTML_Strict_Mode", true);
+define ("Grid_DOCTYPE", "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
+define ("Grid_HTML_NS", "<html xmlns=\"http://www.w3.org/1999/xhtml\">");
+
+//--- Jump to Personalized Home Page first if logged in?
+define ("PersonalizeFrontPage", "0");
+
+//--- Where to look for new components
+define ("ComponentInstallationDirectory", ROOT_FILES."/pagebuilder/components");
+
+//----------------------------------------------------------------
+
+//--- SmartSender Settings
+
+define ("EnableInboxMonitor", "0");
+define ("EnableCampaignPreview", "1");
+define ("InboxMonitorSeedList", MODULE_FILES."/dictionaries/imsl.txt");
+define ("CampaignPreviewSampleAddress", "test@smartsender.co.uk");
+
+//----------------------------------------------------------------
+
+//--- Twitter Settings
+
+define ("EnableTwitterPublishing", "1"); // enable to authorise Ensight to post to your Twitter account
+define ("TwitterUser", "ensightdev");
+define ("TwitterPass", "foo7ty");
+define ("TwitterDefaultPost", "Breaking News! {title}... {link}");
+define ("TwitterURLShortener", "bit.ly");
+define ("TwitterURLShortenerLogin", "johnginsberg");
+define ("TwitterURLShortenerAPI", "R_232d9edbda7ece8a59a50eaded572750");
+
+//----------------------------------------------------------------
+
+//--- Other Output Settings
+
+//--- Table
+define ("HeaderBG", "#C0C0C0");
+define ("CellBG", "#FFFFFF");
+define ("CellSpace", "2");
+define ("CellPad", "2");
+define ("TableBorder", "0");
+
+//--- Font (deprecated)
+define ("DefaultFont", "<FONT FACE=\"Verdana, Arial, Helvetica\" SIZE=-1>");
+define ("OtherFont", "<FONT FACE=\"Verdana, Arial, Helvetica\" SIZE=-2>");
+
+//--- Send welcome messages using HTML
+define ("WelcomeUseHTML", "0");
+
+//--- Welcome messages (see CPPM.php)
+define ("AdminWelcomeMessage", "Dear Admin\n\nThis is an automated message. A new user has registered on <?ECHO var=\"friendly\"></?>!\n\nTheir login details are as follows:\n\nE-mail address: <?ECHO var=\"login\">Unknown</?>\nPassword: <?ECHO var=\"password\">Unknown</?>\n\nTheir assigned profile # is <?ECHO var=\"profile_id\">Unknown</?>. To adjust the user\'s login details, please use the web-based administration tool.\n\nWebmaster, <?ECHO var=\"friendly\"></?>");
+define ("AdminWelcomeSubject", "New registration on My Website");
+
+define ("WelcomeMessage", "Hello,\n\nThanks for registering with My Website!!\n\nPlease click on the following link to activate your profile:\n\n<?ECHO var=\"validate\"></?>\n\nOnce again, thanks for visiting. Feel free to stop by anytime at http://www.domain.com\n\nWebmaster, My Website");
+define ("WelcomeSubject", "Welcome to My Website!");
+
+//--- Password reminder message (see reminder.php)
+define ("ReminderMessage", "Hi <?FORM field=\"First Name\">there</?>,\n\nAs requested, here is your password for My Website\nPassword: <?ECHO var=\"password\">Sorry, we couldn\'t find your password</?>\n\nRegards\n\nWebmaster\nMy Website");
+define ("ReminderSubject", "Your password reminder from My Website");
+
+//--- Mail a friend message (see sendmail.php)
+define ("HTMLMailHeader", "<html>\n<head>\n\t<title>{title}</title>\n\t<link href=\"{stylesheet}\" rel=\"stylesheet\" type=\"text/css\" />\n</head>\n<body>");
+define ("HTMLMailFooter", "</body></html>");
+define ("TextMailHeader", "");
+define ("TextMailFooter", "");
+define ("MailHeader", ""); // deprecated
+define ("MailFooter", ""); // deprecated
+define ("MailSubject", "A special message from My Website");
+define ("MailDefault", "The following link was sent to you from My Website:\n");
+
+define ("MobileHeader", "");
+define ("MobileFooter", "");
+
+//--- Message board messages (see MPM.php)
+define ("AdminMessageHeader", "Dear Admin,\n\nThis is an automated message. A message has been posted on My Website with the subject \'\$Subject\'.");
+define ("AdminMessageFooter", "To approve the message, please visit the Message Center at http://www.domain.com/live/admin.\n\nWebmaster, My Website");
+define ("AdminMessageSubject", "There\'s a message waiting for approval on My Website");
+define ("AdminMessageDefault", "");
+
+define ("MessageHeader", "Hello,\n\nA message has been sent to you on My Website");
+define ("MessageFooter", "Webmaster, My Website\nhttp://www.domain.com");
+define ("MessageSubject", "There\'s a message waiting for you on My Website");
+define ("MessageDefault", "To read this message, please login to the site at http://www.domain.com/live/message.php");
+
+//--- General windows
+define ("WindowHeader", "<HTML><BODY><FONT FACE=\"Verdana\" SIZE=-1>");
+define ("WindowFooter", "</FONT></BODY></HTML>");
+
+//--- Date/time formatting specifics
+
+define ("FORMAT_LONG", "l, d F Y h:ia (T)");
+define ("FORMAT_SHORT", "l, d F Y");
+define ("FORMAT_HALF", "d/m/y H:i");
+define ("FORMAT_DATE", "d/m/Y");
+define ("FORMAT_BRIEF", "d/m H:i");
+define ("FORMAT_FULL", "d/m/Y H:i:s");
+
+//----------------------------------------------------------------
+
+//--- Custom definitions
+
+@include_once (MODULE_FILES."/globals.php");
+@include_once (MODULE_FILES."/sms.php");
+
+//----------------------------------------------------------------
+
+//--- Define default processors
+define ("DefaultDBErrorHandler", "MyErrors");
+define ("DefaultEventHandler", "MyEvents");
+define ("DefaultFusionProcessor", "MyFusion");
+define ("DefaultSMSHandler", "MySMS");
+
+//--- Optional definitions
+//define ("SynchronizeFileUpload", "MyFileUploads");
+define ("IgnoreFileUploadStripSlashes", "1");
+//define ("AutoUnsubscribeAfterXBounces", "3");
+
+//--- Uncomment these definitions to deprecate functionality broken in 3.1...
+//define ("DeprecateLogin", "1");
+//define ("DeprecateLongTextAreaFields", "1");
+//define ("DeprecateMIMEstripslashes", "1");
+//define ("DeprecateContentKeywords", "1");
+//define ("EnableProfiling2_0", "1");
+
+//--- Fix PHP settings (from php5.3 onwards)
+PHP_INI_FIX ();
+
+//---- List of Counntries
+$countries = array(
+    'AF'=>'AFGHANISTAN',
+    'AL'=>'ALBANIA',
+    'DZ'=>'ALGERIA',
+    'AS'=>'AMERICAN SAMOA',
+    'AD'=>'ANDORRA',
+    'AO'=>'ANGOLA',
+    'AI'=>'ANGUILLA',
+    'AQ'=>'ANTARCTICA',
+    'AG'=>'ANTIGUA AND BARBUDA',
+    'AR'=>'ARGENTINA',
+    'AM'=>'ARMENIA',
+    'AW'=>'ARUBA',
+    'AU'=>'AUSTRALIA',
+    'AT'=>'AUSTRIA',
+    'AZ'=>'AZERBAIJAN',
+    'BS'=>'BAHAMAS',
+    'BH'=>'BAHRAIN',
+    'BD'=>'BANGLADESH',
+    'BB'=>'BARBADOS',
+    'BY'=>'BELARUS',
+    'BE'=>'BELGIUM',
+    'BZ'=>'BELIZE',
+    'BJ'=>'BENIN',
+    'BM'=>'BERMUDA',
+    'BT'=>'BHUTAN',
+    'BO'=>'BOLIVIA',
+    'BA'=>'BOSNIA AND HERZEGOVINA',
+    'BW'=>'BOTSWANA',
+    'BV'=>'BOUVET ISLAND',
+    'BR'=>'BRAZIL',
+    'IO'=>'BRITISH INDIAN OCEAN TERRITORY',
+    'BN'=>'BRUNEI DARUSSALAM',
+    'BG'=>'BULGARIA',
+    'BF'=>'BURKINA FASO',
+    'BI'=>'BURUNDI',
+    'KH'=>'CAMBODIA',
+    'CM'=>'CAMEROON',
+    'CA'=>'CANADA',
+    'CV'=>'CAPE VERDE',
+    'KY'=>'CAYMAN ISLANDS',
+    'CF'=>'CENTRAL AFRICAN REPUBLIC',
+    'TD'=>'CHAD',
+    'CL'=>'CHILE',
+    'CN'=>'CHINA',
+    'CX'=>'CHRISTMAS ISLAND',
+    'CC'=>'COCOS (KEELING) ISLANDS',
+    'CO'=>'COLOMBIA',
+    'KM'=>'COMOROS',
+    'CG'=>'CONGO',
+    'CD'=>'CONGO, THE DEMOCRATIC REPUBLIC OF THE',
+    'CK'=>'COOK ISLANDS',
+    'CR'=>'COSTA RICA',
+    'CI'=>'COTE D IVOIRE',
+    'HR'=>'CROATIA',
+    'CU'=>'CUBA',
+    'CY'=>'CYPRUS',
+    'CZ'=>'CZECH REPUBLIC',
+    'DK'=>'DENMARK',
+    'DJ'=>'DJIBOUTI',
+    'DM'=>'DOMINICA',
+    'DO'=>'DOMINICAN REPUBLIC',
+    'TP'=>'EAST TIMOR',
+    'EC'=>'ECUADOR',
+    'EG'=>'EGYPT',
+    'SV'=>'EL SALVADOR',
+    'GQ'=>'EQUATORIAL GUINEA',
+    'ER'=>'ERITREA',
+    'EE'=>'ESTONIA',
+    'ET'=>'ETHIOPIA',
+    'FK'=>'FALKLAND ISLANDS (MALVINAS)',
+    'FO'=>'FAROE ISLANDS',
+    'FJ'=>'FIJI',
+    'FI'=>'FINLAND',
+    'FR'=>'FRANCE',
+    'GF'=>'FRENCH GUIANA',
+    'PF'=>'FRENCH POLYNESIA',
+    'TF'=>'FRENCH SOUTHERN TERRITORIES',
+    'GA'=>'GABON',
+    'GM'=>'GAMBIA',
+    'GE'=>'GEORGIA',
+    'DE'=>'GERMANY',
+    'GH'=>'GHANA',
+    'GI'=>'GIBRALTAR',
+    'GR'=>'GREECE',
+    'GL'=>'GREENLAND',
+    'GD'=>'GRENADA',
+    'GP'=>'GUADELOUPE',
+    'GU'=>'GUAM',
+    'GT'=>'GUATEMALA',
+    'GN'=>'GUINEA',
+    'GW'=>'GUINEA-BISSAU',
+    'GY'=>'GUYANA',
+    'HT'=>'HAITI',
+    'HM'=>'HEARD ISLAND AND MCDONALD ISLANDS',
+    'VA'=>'HOLY SEE (VATICAN CITY STATE)',
+    'HN'=>'HONDURAS',
+    'HK'=>'HONG KONG',
+    'HU'=>'HUNGARY',
+    'IS'=>'ICELAND',
+    'IN'=>'INDIA',
+    'ID'=>'INDONESIA',
+    'IR'=>'IRAN, ISLAMIC REPUBLIC OF',
+    'IQ'=>'IRAQ',
+    'IE'=>'IRELAND',
+    'IL'=>'ISRAEL',
+    'IT'=>'ITALY',
+    'JM'=>'JAMAICA',
+    'JP'=>'JAPAN',
+    'JO'=>'JORDAN',
+    'KZ'=>'KAZAKSTAN',
+    'KE'=>'KENYA',
+    'KI'=>'KIRIBATI',
+    'KP'=>'KOREA DEMOCRATIC PEOPLES REPUBLIC OF',
+    'KR'=>'KOREA REPUBLIC OF',
+    'KW'=>'KUWAIT',
+    'KG'=>'KYRGYZSTAN',
+    'LA'=>'LAO PEOPLES DEMOCRATIC REPUBLIC',
+    'LV'=>'LATVIA',
+    'LB'=>'LEBANON',
+    'LS'=>'LESOTHO',
+    'LR'=>'LIBERIA',
+    'LY'=>'LIBYAN ARAB JAMAHIRIYA',
+    'LI'=>'LIECHTENSTEIN',
+    'LT'=>'LITHUANIA',
+    'LU'=>'LUXEMBOURG',
+    'MO'=>'MACAU',
+    'MK'=>'MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF',
+    'MG'=>'MADAGASCAR',
+    'MW'=>'MALAWI',
+    'MY'=>'MALAYSIA',
+    'MV'=>'MALDIVES',
+    'ML'=>'MALI',
+    'MT'=>'MALTA',
+    'MH'=>'MARSHALL ISLANDS',
+    'MQ'=>'MARTINIQUE',
+    'MR'=>'MAURITANIA',
+    'MU'=>'MAURITIUS',
+    'YT'=>'MAYOTTE',
+    'MX'=>'MEXICO',
+    'FM'=>'MICRONESIA, FEDERATED STATES OF',
+    'MD'=>'MOLDOVA, REPUBLIC OF',
+    'MC'=>'MONACO',
+    'MN'=>'MONGOLIA',
+    'MS'=>'MONTSERRAT',
+    'MA'=>'MOROCCO',
+    'MZ'=>'MOZAMBIQUE',
+    'MM'=>'MYANMAR',
+    'NA'=>'NAMIBIA',
+    'NR'=>'NAURU',
+    'NP'=>'NEPAL',
+    'NL'=>'NETHERLANDS',
+    'AN'=>'NETHERLANDS ANTILLES',
+    'NC'=>'NEW CALEDONIA',
+    'NZ'=>'NEW ZEALAND',
+    'NI'=>'NICARAGUA',
+    'NE'=>'NIGER',
+    'NG'=>'NIGERIA',
+    'NU'=>'NIUE',
+    'NF'=>'NORFOLK ISLAND',
+    'MP'=>'NORTHERN MARIANA ISLANDS',
+    'NO'=>'NORWAY',
+    'OM'=>'OMAN',
+    'PK'=>'PAKISTAN',
+    'PW'=>'PALAU',
+    'PS'=>'PALESTINIAN TERRITORY, OCCUPIED',
+    'PA'=>'PANAMA',
+    'PG'=>'PAPUA NEW GUINEA',
+    'PY'=>'PARAGUAY',
+    'PE'=>'PERU',
+    'PH'=>'PHILIPPINES',
+    'PN'=>'PITCAIRN',
+    'PL'=>'POLAND',
+    'PT'=>'PORTUGAL',
+    'PR'=>'PUERTO RICO',
+    'QA'=>'QATAR',
+    'RE'=>'REUNION',
+    'RO'=>'ROMANIA',
+    'RU'=>'RUSSIAN FEDERATION',
+    'RW'=>'RWANDA',
+    'SH'=>'SAINT HELENA',
+    'KN'=>'SAINT KITTS AND NEVIS',
+    'LC'=>'SAINT LUCIA',
+    'PM'=>'SAINT PIERRE AND MIQUELON',
+    'VC'=>'SAINT VINCENT AND THE GRENADINES',
+    'WS'=>'SAMOA',
+    'SM'=>'SAN MARINO',
+    'ST'=>'SAO TOME AND PRINCIPE',
+    'SA'=>'SAUDI ARABIA',
+    'SN'=>'SENEGAL',
+    'SC'=>'SEYCHELLES',
+    'SL'=>'SIERRA LEONE',
+    'SG'=>'SINGAPORE',
+    'SK'=>'SLOVAKIA',
+    'SI'=>'SLOVENIA',
+    'SB'=>'SOLOMON ISLANDS',
+    'SO'=>'SOMALIA',
+    'ZA'=>'SOUTH AFRICA',
+    'GS'=>'SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS',
+    'ES'=>'SPAIN',
+    'LK'=>'SRI LANKA',
+    'SD'=>'SUDAN',
+    'SR'=>'SURINAME',
+    'SJ'=>'SVALBARD AND JAN MAYEN',
+    'SZ'=>'SWAZILAND',
+    'SE'=>'SWEDEN',
+    'CH'=>'SWITZERLAND',
+    'SY'=>'SYRIAN ARAB REPUBLIC',
+    'TW'=>'TAIWAN, PROVINCE OF CHINA',
+    'TJ'=>'TAJIKISTAN',
+    'TZ'=>'TANZANIA, UNITED REPUBLIC OF',
+    'TH'=>'THAILAND',
+    'TG'=>'TOGO',
+    'TK'=>'TOKELAU',
+    'TO'=>'TONGA',
+    'TT'=>'TRINIDAD AND TOBAGO',
+    'TN'=>'TUNISIA',
+    'TR'=>'TURKEY',
+    'TM'=>'TURKMENISTAN',
+    'TC'=>'TURKS AND CAICOS ISLANDS',
+    'TV'=>'TUVALU',
+    'UG'=>'UGANDA',
+    'UA'=>'UKRAINE',
+    'AE'=>'UNITED ARAB EMIRATES',
+    'GB'=>'UNITED KINGDOM',
+    'US'=>'UNITED STATES',
+    'UM'=>'UNITED STATES MINOR OUTLYING ISLANDS',
+    'UY'=>'URUGUAY',
+    'UZ'=>'UZBEKISTAN',
+    'VU'=>'VANUATU',
+    'VE'=>'VENEZUELA',
+    'VN'=>'VIET NAM',
+    'VG'=>'VIRGIN ISLANDS, BRITISH',
+    'VI'=>'VIRGIN ISLANDS, U.S.',
+    'WF'=>'WALLIS AND FUTUNA',
+    'EH'=>'WESTERN SAHARA',
+    'YE'=>'YEMEN',
+    'YU'=>'YUGOSLAVIA',
+    'ZM'=>'ZAMBIA',
+    'ZW'=>'ZIMBABWE',
+  );
+
+$GLOBALS['countries'] = $countries;
+function obHandler ($Buffer) {
+//--- Enables output buffering of all content
+
+	$Replay = $Buffer;
+
+	//--- Add custom code here
+	//$Replay = str_replace ("Lookup", "Replace", $Replay);
+
+	return $Replay;
+
+}
+
+if (!$IgnoreOBHandler) {
+	ob_start ("obHandler");
+}
+
+//--- Optional redirect to holding page
+if (DEBUG_PAGE != '') {
+	header ("Location: ".DEBUG_PAGE); exit;
+}
+
+//--- Correct default content type
+if ((defined ("DefaultContentType")) && (defined ("DefaultCharset"))) {
+	header ("Content-Type: ".DefaultContentType."; charset=".DefaultCharset);
+}
+
+//--- Connects to the selected database
+if (defined ("DB_INCLUDED")) {
+	ConnectToDB ("127.0.0.1", None, "docnow", "root", "tL3tj57xJLSUHbV");
+}
+?>

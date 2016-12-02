@@ -1,0 +1,18 @@
+/* Left align example */
+.FormOutline { }
+.FormOneRow { width: 800px; clear: both }
+.FormSubmit { width: 800px; clear: both; margin-left: 100px }
+.FormCaption { width: 300px; float: left; font-weight: bold; font-size: 12px }
+.FormElement { width: 500px; float: right }
+.FormHelp { float: left; width: 300px; clear: left; font-size: smaller }
+
+/* Top down example */
+/*
+
+.FormOutline { }
+.FormOneRow { width: 800px; clear: both; margin-top: 12px }
+.FormSubmit { width: 800px; clear: both }
+.FormCaption { width: 800px; font-weight: bold; padding-top: 4px; font-size: 12px }
+.FormElement { width: 800px }
+.FormHelp { width: 800px; font-size: smaller }
+*/

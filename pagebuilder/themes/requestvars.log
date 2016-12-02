@@ -1,0 +1,714 @@
+[2011-07-24 17:17:44] Array
+(
+    [SCRIPT_URL] => /news/blog/segmentation-everyones-doing-it.html
+    [SCRIPT_URI] => http://www.getensight.com/news/blog/segmentation-everyones-doing-it.html
+    [REDIRECT_TARGET] => /live/content.php
+    [HTTP_CONNECTION] => close
+    [HTTP_HOST] => www.getensight.com
+    [HTTP_USER_AGENT] => Mozilla/5.0 (compatible; MJ12bot/v1.4.0; http://www.majestic12.co.uk/bot.php?+)
+    [HTTP_ACCEPT] => text/html,text/plain,text/xml,text/*,application/xml,application/xhtml+xml,application/rss+xml,application/atom+xml,application/rdf+xml
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [HTTP_ACCEPT_LANGUAGE] => en
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 173.242.125.191
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/content.php
+    [REMOTE_PORT] => 52733
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => _origURL=/news/blog/segmentation-everyones-doing-it.html
+    [REQUEST_URI] => /news/blog/segmentation-everyones-doing-it.html
+    [SCRIPT_NAME] => /news/blog/segmentation-everyones-doing-it.html
+    [PHP_SELF] => /news/blog/segmentation-everyones-doing-it.html
+    [REQUEST_TIME] => 1311524264
+)
+
+[2011-07-24 17:17:45] Array
+(
+    [SCRIPT_URL] => /
+    [SCRIPT_URI] => http://www.getensight.com/
+    [REDIRECT_TARGET] => /live/index.php
+    [HTTP_HOST] => www.getensight.com
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.122 Safari/534.30
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-GB,en-US;q=0.8,en;q=0.6
+    [HTTP_ACCEPT_CHARSET] => ISO-8859-1,utf-8;q=0.7,*;q=0.3
+    [HTTP_COOKIE] => __utma=232059401.1871811154.1311026990.1311026990.1311026990.1; __utmz=232059401.1311026990.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); ENVENT=80451
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 86.166.184.218
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/index.php
+    [REMOTE_PORT] => 50270
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /
+    [SCRIPT_NAME] => /
+    [PHP_SELF] => /
+    [REQUEST_TIME] => 1311524265
+)
+
+[2011-07-24 17:17:45] Array
+(
+    [SCRIPT_URL] => /
+    [SCRIPT_URI] => http://www.getensight.com/
+    [REDIRECT_TARGET] => /live/index.php
+    [HTTP_HOST] => www.getensight.com
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.122 Safari/534.30
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-GB,en-US;q=0.8,en;q=0.6
+    [HTTP_ACCEPT_CHARSET] => ISO-8859-1,utf-8;q=0.7,*;q=0.3
+    [HTTP_COOKIE] => __utma=232059401.1871811154.1311026990.1311026990.1311026990.1; __utmz=232059401.1311026990.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); ENVENT=80451; Session_ID=3afb6ec7e984cfe2c7f963a59e76a8fd
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 86.166.184.218
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/index.php
+    [REMOTE_PORT] => 50272
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /
+    [SCRIPT_NAME] => /
+    [PHP_SELF] => /
+    [REQUEST_TIME] => 1311524265
+)
+
+[2011-07-24 17:17:47] Array
+(
+    [SCRIPT_URL] => /company/careers.html
+    [SCRIPT_URI] => http://www.getensight.com/company/careers.html
+    [REDIRECT_TARGET] => /live/content.php
+    [HTTP_CONNECTION] => close
+    [HTTP_HOST] => www.getensight.com
+    [HTTP_USER_AGENT] => Mozilla/5.0 (compatible; MJ12bot/v1.4.0; http://www.majestic12.co.uk/bot.php?+)
+    [HTTP_ACCEPT] => text/html,text/plain,text/xml,text/*,application/xml,application/xhtml+xml,application/rss+xml,application/atom+xml,application/rdf+xml
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [HTTP_ACCEPT_LANGUAGE] => en
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 173.242.125.191
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/content.php
+    [REMOTE_PORT] => 54887
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => _origURL=/company/careers.html
+    [REQUEST_URI] => /company/careers.html
+    [SCRIPT_NAME] => /company/careers.html
+    [PHP_SELF] => /company/careers.html
+    [REQUEST_TIME] => 1311524267
+)
+
+[2011-07-24 17:17:50] Array
+(
+    [SCRIPT_URL] => /products/consulting-services.html
+    [SCRIPT_URI] => http://www.getensight.com/products/consulting-services.html
+    [REDIRECT_TARGET] => /live/content.php
+    [HTTP_CONNECTION] => close
+    [HTTP_HOST] => www.getensight.com
+    [HTTP_USER_AGENT] => Mozilla/5.0 (compatible; MJ12bot/v1.4.0; http://www.majestic12.co.uk/bot.php?+)
+    [HTTP_ACCEPT] => text/html,text/plain,text/xml,text/*,application/xml,application/xhtml+xml,application/rss+xml,application/atom+xml,application/rdf+xml
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [HTTP_ACCEPT_LANGUAGE] => en
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 173.242.125.191
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/content.php
+    [REMOTE_PORT] => 56866
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => _origURL=/products/consulting-services.html
+    [REQUEST_URI] => /products/consulting-services.html
+    [SCRIPT_NAME] => /products/consulting-services.html
+    [PHP_SELF] => /products/consulting-services.html
+    [REQUEST_TIME] => 1311524270
+)
+
+[2011-07-24 17:17:54] Array
+(
+    [SCRIPT_URL] => /partners/
+    [SCRIPT_URI] => http://www.getensight.com/partners/
+    [REDIRECT_TARGET] => /live/content.php
+    [HTTP_CONNECTION] => close
+    [HTTP_HOST] => www.getensight.com
+    [HTTP_USER_AGENT] => Mozilla/5.0 (compatible; MJ12bot/v1.4.0; http://www.majestic12.co.uk/bot.php?+)
+    [HTTP_ACCEPT] => text/html,text/plain,text/xml,text/*,application/xml,application/xhtml+xml,application/rss+xml,application/atom+xml,application/rdf+xml
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [HTTP_ACCEPT_LANGUAGE] => en
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 173.242.125.191
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/content.php
+    [REMOTE_PORT] => 58741
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => _origURL=/partners/
+    [REQUEST_URI] => /partners/
+    [SCRIPT_NAME] => /partners/
+    [PHP_SELF] => /partners/
+    [REQUEST_TIME] => 1311524274
+)
+
+[2011-07-24 17:17:57] Array
+(
+    [SCRIPT_URL] => /partners/value-added-resellers.html
+    [SCRIPT_URI] => http://www.getensight.com/partners/value-added-resellers.html
+    [REDIRECT_TARGET] => /live/content.php
+    [HTTP_CONNECTION] => close
+    [HTTP_HOST] => www.getensight.com
+    [HTTP_USER_AGENT] => Mozilla/5.0 (compatible; MJ12bot/v1.4.0; http://www.majestic12.co.uk/bot.php?+)
+    [HTTP_ACCEPT] => text/html,text/plain,text/xml,text/*,application/xml,application/xhtml+xml,application/rss+xml,application/atom+xml,application/rdf+xml
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [HTTP_ACCEPT_LANGUAGE] => en
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 173.242.125.191
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/content.php
+    [REMOTE_PORT] => 60825
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => _origURL=/partners/value-added-resellers.html
+    [REQUEST_URI] => /partners/value-added-resellers.html
+    [SCRIPT_NAME] => /partners/value-added-resellers.html
+    [PHP_SELF] => /partners/value-added-resellers.html
+    [REQUEST_TIME] => 1311524277
+)
+
+[2011-07-24 17:18:00] Array
+(
+    [SCRIPT_URL] => /news/
+    [SCRIPT_URI] => http://www.getensight.com/news/
+    [REDIRECT_TARGET] => /live/content.php
+    [HTTP_CONNECTION] => close
+    [HTTP_HOST] => www.getensight.com
+    [HTTP_USER_AGENT] => Mozilla/5.0 (compatible; MJ12bot/v1.4.0; http://www.majestic12.co.uk/bot.php?+)
+    [HTTP_ACCEPT] => text/html,text/plain,text/xml,text/*,application/xml,application/xhtml+xml,application/rss+xml,application/atom+xml,application/rdf+xml
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [HTTP_ACCEPT_LANGUAGE] => en
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 173.242.125.191
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/content.php
+    [REMOTE_PORT] => 34401
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => _origURL=/news/
+    [REQUEST_URI] => /news/
+    [SCRIPT_NAME] => /news/
+    [PHP_SELF] => /news/
+    [REQUEST_TIME] => 1311524280
+)
+
+[2011-07-24 17:18:03] Array
+(
+    [SCRIPT_URL] => /news/articles-on-web.html
+    [SCRIPT_URI] => http://www.getensight.com/news/articles-on-web.html
+    [REDIRECT_TARGET] => /live/content.php
+    [HTTP_CONNECTION] => close
+    [HTTP_HOST] => www.getensight.com
+    [HTTP_USER_AGENT] => Mozilla/5.0 (compatible; MJ12bot/v1.4.0; http://www.majestic12.co.uk/bot.php?+)
+    [HTTP_ACCEPT] => text/html,text/plain,text/xml,text/*,application/xml,application/xhtml+xml,application/rss+xml,application/atom+xml,application/rdf+xml
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [HTTP_ACCEPT_LANGUAGE] => en
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 173.242.125.191
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/content.php
+    [REMOTE_PORT] => 36400
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => _origURL=/news/articles-on-web.html
+    [REQUEST_URI] => /news/articles-on-web.html
+    [SCRIPT_NAME] => /news/articles-on-web.html
+    [PHP_SELF] => /news/articles-on-web.html
+    [REQUEST_TIME] => 1311524283
+)
+
+[2011-07-24 17:18:07] Array
+(
+    [SCRIPT_URL] => /news/articles-on-emarketing.html
+    [SCRIPT_URI] => http://www.getensight.com/news/articles-on-emarketing.html
+    [REDIRECT_TARGET] => /live/content.php
+    [HTTP_CONNECTION] => close
+    [HTTP_HOST] => www.getensight.com
+    [HTTP_USER_AGENT] => Mozilla/5.0 (compatible; MJ12bot/v1.4.0; http://www.majestic12.co.uk/bot.php?+)
+    [HTTP_ACCEPT] => text/html,text/plain,text/xml,text/*,application/xml,application/xhtml+xml,application/rss+xml,application/atom+xml,application/rdf+xml
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [HTTP_ACCEPT_LANGUAGE] => en
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 173.242.125.191
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/content.php
+    [REMOTE_PORT] => 38589
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => _origURL=/news/articles-on-emarketing.html
+    [REQUEST_URI] => /news/articles-on-emarketing.html
+    [SCRIPT_NAME] => /news/articles-on-emarketing.html
+    [PHP_SELF] => /news/articles-on-emarketing.html
+    [REQUEST_TIME] => 1311524287
+)
+
+[2011-07-24 17:18:09] Array
+(
+    [SCRIPT_URL] => /news/blog/new-version-of-ensight-ecrm-suite.html
+    [SCRIPT_URI] => http://www.getensight.com/news/blog/new-version-of-ensight-ecrm-suite.html
+    [REDIRECT_TARGET] => /live/content.php
+    [HTTP_ACCEPT] => text/html,text/plain,text/xml,text/*,application/xml,application/xhtml+xml,application/rss+xml,application/atom+xml,application/rdf+xml
+    [HTTP_USER_AGENT] => Mozilla/5.0 (compatible; MJ12bot/v1.4.0; http://www.majestic12.co.uk/bot.php?+)
+    [HTTP_ACCEPT_LANGUAGE] => en
+    [HTTP_HOST] => www.getensight.com
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 77.248.111.238
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/content.php
+    [REMOTE_PORT] => 22682
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => _origURL=/news/blog/new-version-of-ensight-ecrm-suite.html
+    [REQUEST_URI] => /news/blog/new-version-of-ensight-ecrm-suite.html
+    [SCRIPT_NAME] => /news/blog/new-version-of-ensight-ecrm-suite.html
+    [PHP_SELF] => /news/blog/new-version-of-ensight-ecrm-suite.html
+    [REQUEST_TIME] => 1311524289
+)
+
+[2011-07-24 17:18:10] Array
+(
+    [SCRIPT_URL] => /solutions/
+    [SCRIPT_URI] => http://www.getensight.com/solutions/
+    [REDIRECT_TARGET] => /live/content.php
+    [HTTP_CONNECTION] => close
+    [HTTP_HOST] => www.getensight.com
+    [HTTP_USER_AGENT] => Mozilla/5.0 (compatible; MJ12bot/v1.4.0; http://www.majestic12.co.uk/bot.php?+)
+    [HTTP_ACCEPT] => text/html,text/plain,text/xml,text/*,application/xml,application/xhtml+xml,application/rss+xml,application/atom+xml,application/rdf+xml
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [HTTP_ACCEPT_LANGUAGE] => en
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 173.242.125.191
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/content.php
+    [REMOTE_PORT] => 40696
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => _origURL=/solutions/
+    [REQUEST_URI] => /solutions/
+    [SCRIPT_NAME] => /solutions/
+    [PHP_SELF] => /solutions/
+    [REQUEST_TIME] => 1311524290
+)
+
+[2011-07-24 17:18:14] Array
+(
+    [SCRIPT_URL] => /customers/
+    [SCRIPT_URI] => http://www.getensight.com/customers/
+    [REDIRECT_TARGET] => /live/content.php
+    [HTTP_CONNECTION] => close
+    [HTTP_HOST] => www.getensight.com
+    [HTTP_USER_AGENT] => Mozilla/5.0 (compatible; MJ12bot/v1.4.0; http://www.majestic12.co.uk/bot.php?+)
+    [HTTP_ACCEPT] => text/html,text/plain,text/xml,text/*,application/xml,application/xhtml+xml,application/rss+xml,application/atom+xml,application/rdf+xml
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [HTTP_ACCEPT_LANGUAGE] => en
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 173.242.125.191
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/content.php
+    [REMOTE_PORT] => 42654
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => _origURL=/customers/
+    [REQUEST_URI] => /customers/
+    [SCRIPT_NAME] => /customers/
+    [PHP_SELF] => /customers/
+    [REQUEST_TIME] => 1311524294
+)
+
+[2011-07-24 17:18:17] Array
+(
+    [SCRIPT_URL] => /customers/case-studies.html
+    [SCRIPT_URI] => http://www.getensight.com/customers/case-studies.html
+    [REDIRECT_TARGET] => /live/content.php
+    [HTTP_CONNECTION] => close
+    [HTTP_HOST] => www.getensight.com
+    [HTTP_USER_AGENT] => Mozilla/5.0 (compatible; MJ12bot/v1.4.0; http://www.majestic12.co.uk/bot.php?+)
+    [HTTP_ACCEPT] => text/html,text/plain,text/xml,text/*,application/xml,application/xhtml+xml,application/rss+xml,application/atom+xml,application/rdf+xml
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [HTTP_ACCEPT_LANGUAGE] => en
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 173.242.125.191
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/content.php
+    [REMOTE_PORT] => 44797
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => _origURL=/customers/case-studies.html
+    [REQUEST_URI] => /customers/case-studies.html
+    [SCRIPT_NAME] => /customers/case-studies.html
+    [PHP_SELF] => /customers/case-studies.html
+    [REQUEST_TIME] => 1311524297
+)
+
+[2011-07-24 17:18:19] Array
+(
+    [SCRIPT_URL] => /live/thetrack.php
+    [SCRIPT_URI] => http://www.getensight.com/live/thetrack.php
+    [HTTP_CONNECTION] => close
+    [HTTP_HOST] => www.getensight.com
+    [HTTP_USER_AGENT] => Mozilla/5.0 (compatible; MJ12bot/v1.4.0; http://www.majestic12.co.uk/bot.php?+)
+    [HTTP_ACCEPT] => text/html,text/plain,text/xml,text/*,application/xml,application/xhtml+xml,application/rss+xml,application/atom+xml,application/rdf+xml
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [HTTP_ACCEPT_LANGUAGE] => en
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 173.242.125.191
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/thetrack.php
+    [REMOTE_PORT] => 45838
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => Item_ID=21
+    [REQUEST_URI] => /live/thetrack.php?Item_ID=21
+    [SCRIPT_NAME] => /live/thetrack.php
+    [PHP_SELF] => /live/thetrack.php
+    [REQUEST_TIME] => 1311524299
+)
+
+[2011-07-24 17:18:20] Array
+(
+    [SCRIPT_URL] => /live/thetrack.php
+    [SCRIPT_URI] => http://www.getensight.com/live/thetrack.php
+    [HTTP_CONNECTION] => close
+    [HTTP_HOST] => www.getensight.com
+    [HTTP_USER_AGENT] => Mozilla/5.0 (compatible; MJ12bot/v1.4.0; http://www.majestic12.co.uk/bot.php?+)
+    [HTTP_ACCEPT] => text/html,text/plain,text/xml,text/*,application/xml,application/xhtml+xml,application/rss+xml,application/atom+xml,application/rdf+xml
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [HTTP_ACCEPT_LANGUAGE] => en
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 173.242.125.191
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/thetrack.php
+    [REMOTE_PORT] => 46800
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => Item_ID=25
+    [REQUEST_URI] => /live/thetrack.php?Item_ID=25
+    [SCRIPT_NAME] => /live/thetrack.php
+    [PHP_SELF] => /live/thetrack.php
+    [REQUEST_TIME] => 1311524300
+)
+
+[2011-07-24 17:18:38] Array
+(
+    [SCRIPT_URL] => /
+    [SCRIPT_URI] => http://www.getensight.com/
+    [REDIRECT_TARGET] => /live/index.php
+    [HTTP_USER_AGENT] => Pingdom.com_bot_version_1.4_(http://www.pingdom.com/)
+    [HTTP_HOST] => www.getensight.com
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 74.52.50.50
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/index.php
+    [REMOTE_PORT] => 55685
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /
+    [SCRIPT_NAME] => /
+    [PHP_SELF] => /
+    [REQUEST_TIME] => 1311524318
+)
+
+[2011-07-24 17:20:32] Array
+(
+    [SCRIPT_URL] => /
+    [SCRIPT_URI] => http://www.getensight.com/
+    [REDIRECT_TARGET] => /live/index.php
+    [HTTP_HOST] => www.getensight.com
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.122 Safari/534.30
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8
+    [HTTP_ACCEPT_CHARSET] => ISO-8859-1,utf-8;q=0.7,*;q=0.3
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 209.6.78.183
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/index.php
+    [REMOTE_PORT] => 49247
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /
+    [SCRIPT_NAME] => /
+    [PHP_SELF] => /
+    [REQUEST_TIME] => 1311524432
+)
+
+[2011-07-24 17:20:33] Array
+(
+    [SCRIPT_URL] => /
+    [SCRIPT_URI] => http://www.getensight.com/
+    [REDIRECT_TARGET] => /live/index.php
+    [HTTP_HOST] => www.getensight.com
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.122 Safari/534.30
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8
+    [HTTP_ACCEPT_CHARSET] => ISO-8859-1,utf-8;q=0.7,*;q=0.3
+    [HTTP_COOKIE] => ENVENT=81259; Session_ID=70de764acdfac62d634ae5d95eea5c6a
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 209.6.78.183
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/index.php
+    [REMOTE_PORT] => 49248
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /
+    [SCRIPT_NAME] => /
+    [PHP_SELF] => /
+    [REQUEST_TIME] => 1311524433
+)
+
+[2011-07-24 17:23:38] Array
+(
+    [SCRIPT_URL] => /
+    [SCRIPT_URI] => http://www.getensight.com/
+    [REDIRECT_TARGET] => /live/index.php
+    [HTTP_USER_AGENT] => Pingdom.com_bot_version_1.4_(http://www.pingdom.com/)
+    [HTTP_HOST] => www.getensight.com
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 83.170.113.102
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/index.php
+    [REMOTE_PORT] => 50209
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /
+    [SCRIPT_NAME] => /
+    [PHP_SELF] => /
+    [REQUEST_TIME] => 1311524618
+)
+
+[2011-07-24 17:26:37] Array
+(
+    [SCRIPT_URL] => /
+    [SCRIPT_URI] => http://www.getensight.com/
+    [REDIRECT_TARGET] => /live/index.php
+    [HTTP_HOST] => www.getensight.com
+    [HTTP_CONNECTION] => close
+    [HTTP_USER_AGENT] => Pingdom.com_bot_version_1.4_(http://www.pingdom.com/)
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 86.166.184.218
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/index.php
+    [REMOTE_PORT] => 50350
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /
+    [SCRIPT_NAME] => /
+    [PHP_SELF] => /
+    [REQUEST_TIME] => 1311524797
+)
+
+[2011-07-24 17:28:39] Array
+(
+    [SCRIPT_URL] => /
+    [SCRIPT_URI] => http://www.getensight.com/
+    [REDIRECT_TARGET] => /live/index.php
+    [HTTP_USER_AGENT] => Pingdom.com_bot_version_1.4_(http://www.pingdom.com/)
+    [HTTP_HOST] => www.getensight.com
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => <address>Apache/2.2.3 (CentOS) Server at www.getensight.com Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.2.3 (CentOS)
+    [SERVER_NAME] => www.getensight.com
+    [SERVER_ADDR] => 172.31.89.20
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 95.211.87.85
+    [DOCUMENT_ROOT] => /mnt/data/apache/htdocs/ensight.co.uk/
+    [SERVER_ADMIN] => webmaster@envent.co.za
+    [SCRIPT_FILENAME] => /mnt/data/apache/htdocs/ensight.co.uk/live/index.php
+    [REMOTE_PORT] => 35281
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /
+    [SCRIPT_NAME] => /
+    [PHP_SELF] => /
+    [REQUEST_TIME] => 1311524919
+)
+

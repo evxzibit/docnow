@@ -1,0 +1,202 @@
+body {
+	background-color: #d6e9fc;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+td {
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+A:link {
+	color: #000000;
+}
+A:hover {
+	color: #ff0000;
+}
+A:visited {
+	color: #550055;
+}
+input {
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+textarea {
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+select {
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+.Xlinks {
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+
+.Xcontainer1 {
+	border: 1px solid #daa7f5;
+}
+.Xtitle1 {
+	background-color: #edd4fa;
+	color: black;
+	font-weight: normal;
+	font-family: "Monotype Corsiva", Verdana, Arial, Helvetica;
+	font-size: 14px;
+}
+.Xcontent1 {
+	background-color: white;
+	color: #999999;
+	font-weight: normal;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+.Xfooter1 {
+	background-color: white;
+	color: black;
+	font-weight: normal;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+
+.Xcontainer2 {
+	border: 1px solid #daa7f5;
+}
+.Xtitle2 {
+	background-color: #edd4fa;
+	color: black;
+	font-weight: normal;
+	font-family: "Monotype Corsiva", Verdana, Arial, Helvetica;
+	font-size: 14px;
+}
+.Xcontent2 {
+	background-color: white;
+	color: #999999;
+	font-weight: normal;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+.Xfooter2 {
+	background-color: white;
+	color: black;
+	font-weight: normal;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+
+.Xcontainer3 {
+	border: 1px solid #daa7f5;
+}
+.Xtitle3 {
+	background-color: #edd4fa;
+	color: black;
+	font-weight: normal;
+	font-family: "Monotype Corsiva", Verdana, Arial, Helvetica;
+	font-size: 14px;
+}
+.Xcontent3 {
+	background-color: white;
+	color: #999999;
+	font-weight: normal;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+.Xfooter3 {
+	background-color: white;
+	color: black;
+	font-weight: normal;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+
+.Xcontainer4 {
+	border: 1px solid #daa7f5;
+}
+.Xtitle4 {
+	background-color: #edd4fa;
+	color: black;
+	font-weight: normal;
+	font-family: "Monotype Corsiva", Verdana, Arial, Helvetica;
+	font-size: 14px;
+}
+.Xcontent4 {
+	background-color: white;
+	color: #999999;
+	font-weight: normal;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+.Xfooter4 {
+	background-color: white;
+	color: black;
+	font-weight: normal;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+
+.Xcontainer5 {
+	border: 1px solid #daa7f5;
+}
+.Xtitle5 {
+	background-color: #edd4fa;
+	color: black;
+	font-weight: normal;
+	font-family: "Monotype Corsiva", Verdana, Arial, Helvetica;
+	font-size: 14px;
+}
+.Xcontent5 {
+	background-color: white;
+	color: #999999;
+	font-weight: normal;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+.Xfooter5 {
+	background-color: white;
+	color: black;
+	font-weight: normal;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+
+.Xcontainer6 {
+	border: 0px;
+}
+.Xtitle6 {
+	background-color: #d6e9fc;
+	color: black;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+.Xcontent6 {
+	padding: 0px;
+	background-color: #d6e9fc;
+	color: black;
+	font-weight: normal;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+.Xfooter6 {
+	background-color: #d6e9fc;
+	color: black;
+	font-weight: normal;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+
+.Xcontentfreeform {
+	background-color: #d6e9fc;
+	color: black;
+	font-weight: normal;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+}
+
+.Xiframe {}
+.Xpage {}
+.Xpagetop {}
+.Xpagebottom {}
+.Xspacer {}
+.Xpageleft {}
+.Xpagemiddle {}
+.Xpageright {}

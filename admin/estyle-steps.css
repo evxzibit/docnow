@@ -1,0 +1,66 @@
+.steps {
+	margin-top: 20px; padding: 10px; border-top: 1px solid #b4bdc7; border-bottom: 1px solid #b4bdc7; background-color: #efefef; width: 840px;
+}
+.step-bar {
+	background: #e9e9e9; width: 840px; overflow: auto;
+}
+.step {
+	float: left; height: 31px; width: 250px; background: #ffffff;
+}
+.step .arrow {
+	background: url(images/wiz-wlwr.gif) 100% 0 no-repeat; height: 31px; width: 12px; float: right;
+}
+.step .text {
+	border: 1px solid #d8deea; padding: 7px; line-height: 15px; border-left: 0 !important;
+}
+.step3 .arrow {
+	background: url(images/wiz-wlgr.gif) 100% 0 no-repeat;
+}
+.selected-step1 .step1 {
+	background: #3d6cb8; 
+}
+.selected-step1 .step1 .arrow {
+	background: url(images/wiz-blwr.gif) 100% 0 no-repeat;
+}
+.selected-step1 .step1 .text {
+	border: 1px solid #3b5998; color: #ffffff;
+}
+.selected-step2 .step2 {
+	background: #3d6cb8; 
+}
+.selected-step2 .step2 .arrow {
+	background: url(images/wiz-blwr.gif) 100% 0 no-repeat;
+}
+.selected-step2 .step2 .text {
+	border: 1px solid #3b5998; color: #ffffff;
+}
+.selected-step2 .step1 .arrow {
+	background: url(images/wiz-wlbr.gif) 100% 0 no-repeat;
+}
+.selected-step3 .step3 {
+	background: #3d6cb8; 
+}
+.selected-step3 .step3 .arrow {
+	background: url(images/wiz-blgr.gif) 100% 0 no-repeat;
+}
+.selected-step3 .step3 .text {
+	border: 1px solid #3b5998; color: #ffffff;
+}
+.selected-step3 .step2 .arrow {
+	background: url(images/wiz-wlbr.gif) 100% 0 no-repeat;
+}
+.fieldrow {
+	border-bottom: 1px solid #d9d9d9; overflow: auto; width: 840px
+}
+.fieldrow .caption {
+	float: left; width: 225px; padding: 24px 0 0 10px;
+}
+.fieldrow .field {
+	padding: 20px; float: left; width: 565px;
+}
+.fieldrow .wide {
+	padding: 20px 0 10px 10px; width: 790px;
+}
+.last {
+	padding: 20px 20px 10px 20px; border-bottom: 0;
+}

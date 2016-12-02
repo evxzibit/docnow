@@ -1,0 +1,165 @@
+<site>
+	<name>Blank Grid Site</name>
+	<description>A blank grid-style site to help you get started quickly...</description>
+	<image></image>
+	<pages>
+		<page>
+			<title>Welcome!</title>
+			<type>grid</type>
+			<file>index.php</file>
+			<if-exists>ignore</if-exists>
+			<keywords></keywords>
+			<summary></summary>
+			<theme></theme>
+			<areas>top, bottom, left, right</areas>
+			<access></access>
+			<purpose>HOME, CPCM</purpose>
+			<container>
+				<title></title>
+				<border>1</border>
+				<position>top</position>
+				<contents>This is the front page of your grid-style site. Click Add Container to customize this page.</contents>
+				<footer></footer>
+			</container>
+			<container>
+				<title>Register...</title>
+				<border>1</border>
+				<position>middle</position>
+				<contents>{ensight/login_registration_2.php}</contents>
+				<footer></footer>
+			</container>
+		</page>
+		<page>
+			<title>Welcome Back!</title>
+			<type>grid</type>
+			<file>home.php</file>
+			<if-exists>ignore</if-exists>
+			<keywords></keywords>
+			<summary></summary>
+			<theme></theme>
+			<areas>top, bottom, left, right</areas>
+			<access>-1</access>
+			<purpose>PHP</purpose>
+			<container>
+				<title></title>
+				<border>1</border>
+				<position>top</position>
+				<contents>This is the personalized home page of your grid-style site. Click Add Container to customize this page.</contents>
+				<footer></footer>
+			</container>
+		</page>
+		<page>
+			<title>Content</title>
+			<type>grid</type>
+			<file>content.php</file>
+			<if-exists>ignore</if-exists>
+			<keywords></keywords>
+			<summary></summary>
+			<theme></theme>
+			<areas>top, bottom, left, right</areas>
+			<access></access>
+			<purpose>CPE, CPP, KPE</purpose>
+			<container>
+				<title></title>
+				<border>1</border>
+				<position>top</position>
+				<contents>This is the content page of your grid-style site. Click Add Container to customize this page.</contents>
+				<footer></footer>
+			</container>
+			<container>
+				<title></title>
+				<border>1</border>
+				<position>left</position>
+				<contents>{ensight/content_list.php}</contents>
+				<parameters>-1</parameters>
+				<footer></footer>
+			</container>
+			<container>
+				<title></title>
+				<border>1</border>
+				<position>middle</position>
+				<contents>{ensight/content_item.php}</contents>
+				<parameters>-1</parameters>
+				<footer></footer>
+			</container>
+		</page>
+		<page>
+			<title>Search Results</title>
+			<type>grid</type>
+			<file>search.php</file>
+			<if-exists>ignore</if-exists>
+			<keywords></keywords>
+			<summary></summary>
+			<theme></theme>
+			<areas>top, bottom, left, right</areas>
+			<access></access>
+			<purpose>SRCH</purpose>
+			<container>
+				<title></title>
+				<border>1</border>
+				<position>top</position>
+				<contents>This is the search results page of your grid-style site. Click Add Container to customize this page.</contents>
+				<footer></footer>
+			</container>
+			<container>
+				<title></title>
+				<border>1</border>
+				<position>middle</position>
+				<contents>{ensight/search_results.php}</contents>
+				<footer></footer>
+			</container>
+		</page>
+		<page>
+			<title>Login</title>
+			<type>grid</type>
+			<file>login.php</file>
+			<if-exists>ignore</if-exists>
+			<keywords></keywords>
+			<summary></summary>
+			<theme></theme>
+			<areas>top, bottom, left, right</areas>
+			<access></access>
+			<purpose>RLM, PRP</purpose>
+			<container>
+				<title></title>
+				<border>1</border>
+				<position>top</position>
+				<contents>This is the login page of your grid-style site. Click Add Container to customize this page.</contents>
+				<footer></footer>
+			</container>
+			<container>
+				<title>Login</title>
+				<border>1</border>
+				<position>middle</position>
+				<contents>{ensight/login_registration_1.php}</contents>
+				<footer></footer>
+			</container>
+			<container>
+				<title>Request a Password Reminder</title>
+				<border>1</border>
+				<position>middle</position>
+				<contents>{ensight/password_reminder.php}</contents>
+				<footer></footer>
+			</container>
+		</page>
+		<page>
+			<title>Complete your registration</title>
+			<type>grid</type>
+			<file>profile.php</file>
+			<if-exists>ignore</if-exists>
+			<keywords></keywords>
+			<summary></summary>
+			<theme></theme>
+			<areas>top, bottom, left, right</areas>
+			<access></access>
+			<purpose>PEM</purpose>
+			<container>
+				<title></title>
+				<border>1</border>
+				<position>top</position>
+				<contents>This is the registration page of your grid-style site. Click Add Container to customize this page.</contents>
+				<footer></footer>
+			</container>
+		</page>
+	</pages>
+</site>

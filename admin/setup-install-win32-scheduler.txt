@@ -1,0 +1,21 @@
+Installing the Scheduler as a Windows Service
+=============================================
+
+1. Download peclXXX-win32-latest.zip from http://snaps.php.net/win32/ where XXX is the 
+   version of PHP you currently run (only available for PHP 5.2 as of this document).
+
+2. Copy php_win32service.dll into your PHP extension directory, usually C:\php5\ext.
+
+3. Add the following line in the dynamic extensions section of php.ini. You do not need 
+   to restart your web server.
+
+	extension=php_win32service.dll
+
+4. Register the Scheduler as a service by running the following from the command line:
+
+	/live/admin/setup-install-win32-scheduler.bat
+
+   You will be prompted to enter the path to your php.exe file before the service can be added
+
+5. Verify the service and make changes as necessary to Ensight Scheduler Win32 in the Windows 
+   service interface. You may be required to assign a suitable Windows login and password.
