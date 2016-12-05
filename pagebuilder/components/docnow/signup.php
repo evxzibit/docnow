@@ -193,11 +193,11 @@
 					 		sessionMessageClass: "alert-success"
 					 	}
 					}).done(function (response) {
-						console.log(response);
+						window.location = homeUrl;
 					});
 
-					$('.tg-user-modal').hide();
-					window.location = homeUrl;
+					// $('.tg-user-modal').hide();
+					
 					
 				} else {
 					flashErrDiv.removeClass('hidden');
