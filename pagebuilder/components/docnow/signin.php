@@ -131,6 +131,32 @@
   }
 </script>
 
+<style type="text/css">
+	.g-signin2{
+	  /*width: 100%;*/
+	}
+
+	.g-signin2 > div{
+	  /*margin: 0 auto;*/
+	}
+
+	.gl-div{
+		width: 120px;
+	}
+	.abcRioButton{
+		width: 120px!important;
+	}
+
+	.abcRioButtonContents{
+		margin-left: -25px;
+	}
+
+	.fb-div{
+		width: 100px;
+    	padding: 20px;
+	}
+</style>
+
 <!--
   Below we include the Login Button social plugin. This button uses
   the JavaScript SDK to present a graphical Login button that triggers
@@ -166,17 +192,15 @@
 	</fieldset>
 </form>
 
-<div class="row">
-	<div class="col-xs-6">
-		<div class="g-signin2" data-onsuccess="onSignIn">
-		</div>
+
+	<div class="g-signin2 center-block gl-div" data-onsuccess="onSignIn" data-theme="light" data-width="200" data-height="50" >
 	</div>
 
-	<div class="col-xs-6">
-		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+	<div class="center-block fb-div">
+		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();" width="200" max-rows="1">
 		</fb:login-button>
 	</div>
-</div>
+
 
 <script>
 	function onSignIn(googleUser) {

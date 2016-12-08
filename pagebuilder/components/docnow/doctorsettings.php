@@ -80,26 +80,37 @@ $languagesArray = explode(",", $profileDetails['language']);
 			e.preventDefault();
 			e.stopImmediatePropagation();
 
-			var $this = $(this);
+   			if ($('#lat').val() == '' ){ 
 
-			$.ajax({
-				type: 'post',
-				url: $this.attr('action'),
-				data: new FormData($(this)[0]),
-				contentType : false,
-				processData : false
-			}).done(function (response) {
-				console.log(response);
-				var responseObj = $.parseJSON(response);
-				if (responseObj.error) {
-					flashErrDiv.removeClass('hidden');
-					flashErrSpan.html(responseObj.message);
-				} else {
-					
-					$('#profiledatadiv').html(responseObj.message)
-				}
+   				flashErrDiv.removeClass('hidden');
+				flashErrSpan.html("Please find ÿour address on google");
+				 $('#address').focus();
 
-			});
+   			}else{
+
+				var $this = $(this);
+
+				$.ajax({
+					type: 'post',
+					url: $this.attr('action'),
+					data: new FormData($(this)[0]),
+					contentType : false,
+					processData : false
+				}).done(function (response) {
+					console.log(response);
+					var responseObj = $.parseJSON(response);
+					if (responseObj.error) {
+						flashErrDiv.removeClass('hidden');
+						flashErrSpan.html(responseObj.message);
+					} else {
+						
+						//$('#profiledatadiv').html(responseObj.message)
+						flashErrDiv.removeClass('hidden');
+						flashErrSpan.html(responseObj.message);
+					}
+
+				});
+			}
 		});
 
 		var 
@@ -126,7 +137,9 @@ $languagesArray = explode(",", $profileDetails['language']);
 					flashErrSpan1.html(responseObj.message);
 				} else {
 					
-					$('#Password-v').html(responseObj.message)
+					//$('#Password-v').html(responseObj.message)
+					flashErrDiv1.removeClass('hidden');
+					flashErrSpan1.html(responseObj.message);
 				}
 
 			});
@@ -157,7 +170,9 @@ $languagesArray = explode(",", $profileDetails['language']);
 					flashErrSpan2.html(responseObj.message);
 				} else {
 					
-					$('#Notifications-v').html(responseObj.message)
+					//$('#Notifications-v').html(responseObj.message)
+					flashErrDiv2.removeClass('hidden');
+					flashErrSpan2.html(responseObj.message);
 				}
 
 			});
@@ -343,16 +358,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					</div>
 					<div class="form-group">
 
-						<label for="email">Address:</label>
+						<label for="email">Find your address on Google:</label>
 						<input type="text" alt="Start address" name="address" id="address" placeholder="Address" autocomplete="on" required  value="<?=$profileDetails['address']?>" />
 						<input type="hidden" id="lat" name="lat" value="<?=$profileDetails['lat']?>" />
 						<input type="hidden" id="lng" name="lng" value="<?=$profileDetails['lng']?>" /> 
 					</div>
-					<!--<div class="form-group">
-							<label for="email">Street Address:</label>
-							<input type="text" class="form-control" id="address_1" name="address_1" value="<?=$profileDetails['address_1']?>" >
-						</div>
-						<div class="form-group">
+					<div class="form-group">
+							<label for="email">Display Address:</label>
+						<input type="text" class="form-control" id="address_1" name="address_1" value="<?=$profileDetails['address_1']?>" >
+					</div>
+						<!--<div class="form-group">
 							<label for="email">Street Address Line 2:</label>
 							<input type="text" class="form-control" id="address_2" name="address_2" value="<?=$profileDetails['address_2']?>">
 						</div>
@@ -432,7 +447,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 						</span>
 					</div>
 					<div class="form-group">
-						<label for="comment">Laungage:</label>
+						<label for="comment"> Language:</label>
 				
 						<span class="">
 							<select class="selectpicker" name="language[]" id="language" multiple>
@@ -445,7 +460,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					</div>
 					<div class="form-group">
 						<label for="comment">Education:</label>
-						<textarea class="form-control" rows="5" id="comment"></textarea>
+						<textarea class="form-control" rows="5" id="education" name="education"><?=$profileDetails['education']?></textarea>
 					</div>
 				  <input type="hidden" name="Profile_ID" value="<?php echo $Profile_ID; ?>">
 				  <input type="hidden" name="whichform" value="profiledata">

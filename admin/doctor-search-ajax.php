@@ -9,7 +9,7 @@ FROM tUsers
 LEFT JOIN tSpecialty ON tSpecialty.id = tUsers.speciality_id
 WHERE tUsers.doctor=1 
 AND (tUsers.first_name LIKE '%$q%' OR tUsers.last_name LIKE '%$q%')
-ORDER BY tUsers.first_name, tUsers.last_name LIMIT 3";
+ORDER BY tUsers.first_name, tUsers.last_name LIMIT 5";
 
 $Query = QueryDB($SQL);
 

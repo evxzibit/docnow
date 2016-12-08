@@ -4,7 +4,36 @@
 	global $Session_ID;
 	$specialities = getSpecialities();
 ?>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+<script type="text/javascript">
+	function initialize() {
 
+
+		var defaultBounds = new google.maps.LatLngBounds(
+			new google.maps.LatLng(40.802089, -124.163751)
+			);
+
+		var input = document.getElementById('address');
+
+		var options = {
+			bounds: defaultBounds,
+	/*		componentRestrictions: {country: 'sa'}*/	
+	    };
+
+
+		var autocomplete = new google.maps.places.Autocomplete(input, options);    
+
+		google.maps.event.addListener(autocomplete, 'place_changed', function () {
+	        var place = autocomplete.getPlace();
+	        $('#lat').val(place.geometry.location.lat());
+	        $('#lng').val(place.geometry.location.lng());
+	        console.log(place.geometry.location.toJSON());
+
+	    });
+	}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 <div id='div-session-write'> </div>
 <span class="home-url hidden"><?=ThisURL?></span>
 <span class="session-write-script hidden"><?='/live/session_write.php'?></span>
@@ -51,6 +80,16 @@
 				<input type="text" class="form-control" placeholder="Cellphone Number" name="cell_phone" required="required">
 			</div>
 			<div class="form-group">
+				
+				<input type="text" alt="Start address" name="address" id="address" placeholder="Find your address on Google" autocomplete="on" required  value="" />
+				<input type="hidden" id="lat" name="lat" value="" />
+				<input type="hidden" id="lng" name="lng" value="" /> 
+			</div>
+			<div class="form-group">
+					
+				<input type="text" class="form-control" placeholder="Display Address" id="address_1" name="address_1" value="" >
+			</div>
+			<!-- <div class="form-group">
 				<input type="text" class="form-control" placeholder="Physical Address" name="address_1">
 			</div>
 			<div class="form-group">
@@ -64,7 +103,7 @@
 			</div>
 			<div class="form-group">
 				<input type="text" class="form-control" placeholder="Postal/ZIP Code" name="postal_code">
-			</div>
+			</div> -->
 			<div class="form-group">
 				<input type="password" class="form-control" placeholder="Password" name="Pwd" required="required">
 			</div>

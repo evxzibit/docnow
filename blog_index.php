@@ -77,15 +77,18 @@
 		<main id="main" class="tg-main-section tg-haslayout">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8 col-sm-12 col-xs-12 pull-left">
+					<div class="col-md-9 col-sm-12 col-xs-12 pull-left">
 						<? ShowContainer (8); ?>
 					</div>
 					
-					<div class="col-md-4 col-sm-12 col-xs-12 pull-right">
+					<div class="col-md-3 col-sm-12 col-xs-12 pull-right">
 						<? ShowContainer (9); ?>
 					</div>
 				</div>
 			</div>
+			<footer id="footer" class="tg-haslayout">
+				<? ShowContainer (3); ?>
+			</footer>
 		</main>
 		<!--************************************
 				Main End
@@ -93,9 +96,7 @@
 		<!--************************************
 				Footer Start
 		*************************************-->
-		<footer id="footer" class="tg-haslayout">
-			<? ShowContainer (3); ?>
-		</footer>
+		
 		<!--************************************
 				Footer End
 		*************************************-->
@@ -106,7 +107,7 @@
 	<!--************************************
 		Sign In Sign Up Light Box Start
 	*************************************-->
-		<div class="modal fade tg-user-modal" tabindex="-1" role="dialog">
+	<div class="modal fade tg-user-modal" tabindex="-1" role="dialog">
 		<div class="tg-modal-content">
 			<ul class="tg-modaltabs-nav" role="tablist">
 				<li role="presentation" class="active"><a href="#tg-signin-formarea" aria-controls="tg-signin-formarea" role="tab" data-toggle="tab">sign in</a></li>

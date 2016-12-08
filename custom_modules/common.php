@@ -269,8 +269,8 @@ function getPatientUpcomingAppointments($profileId) {
 	return $upcomentAppointments;	
 }
 
-function getFeaturedDoctors($specialyId) {
-	$SQL = "SELECT * FROM tUsers WHERE speciality_id={$specialyId} ORDER BY RAND() limit 5";
+function getFeaturedDoctors() {
+	$SQL = "SELECT * FROM tUsers WHERE featured=1 AND active=1 ORDER BY RAND()";
 	$Query = QueryDB($SQL);
 	$featuredDoctors = array();
 	while ($Result = ReadFromDB($Query)){

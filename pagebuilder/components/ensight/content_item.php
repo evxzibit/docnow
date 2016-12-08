@@ -93,10 +93,11 @@ list ($_PAGE_ROBOTS, $_PAGE_CANONICAL) = RetrieveContentSEOTags ($_Item_ID, $Pag
 if ((defined ("AutoCanonicalHomeItems")) && (AutoCanonicalHomeItems == 1) && (!$_PAGE_CANONICAL) && (RetrieveCatalogItemCode ($_Item_ID) == 'Home')) {
 	$_PAGE_CANONICAL = RetrieveCatalogContentURL (CATALOG_CATEGORY, KPE, $_Category_ID, RetrieveCatalogCategoryDescription ($_Category_ID)); 
 }
-$foldersNotToShow = array('14','18','19', '21');
+$foldersNotToShow = array('14','18','19', '21', '15');
 ?>
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-right">
 <?
+
 if(!in_array($Category_ID, $foldersNotToShow)){
 ?>
 <!-- Content item component -->

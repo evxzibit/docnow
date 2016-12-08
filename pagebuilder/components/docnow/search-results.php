@@ -20,7 +20,7 @@ if($_POST['rate']){
     FROM `tUsers`
     LEFT JOIN tAppointments ON tAppointments.doctor_profile_id=tUsers.profile_id 
     LEFT JOIN tDocReview ON tDocReview.appointment_id=tAppointments.id 
-    WHERE tUsers.doctor=1";
+    WHERE tUsers.doctor=1 AND active=1";
 
   $SQL .= $_POST['speciality'] ? " AND speciality_id=".$_POST['speciality'] : "";
   $SQL .= $_POST['gender'] ? " AND gender='".$_POST['gender']."'" : "";
@@ -30,7 +30,7 @@ if($_POST['rate']){
 
 }else{
 
-  $SQL = "SELECT profile_id, lat, lng FROM `tUsers` WHERE doctor=1";
+  $SQL = "SELECT profile_id, lat, lng FROM `tUsers` WHERE doctor=1 AND active=1";
   $SQL .= $_POST['speciality'] ? " AND speciality_id=".$_POST['speciality'] : "";
   $SQL .= $_POST['gender'] ? " AND gender='".$_POST['gender']."'" : "";
   $SQL .= $_POST['language'] ? " AND language LIKE '%".$_POST['language']."%'" : "";
@@ -66,12 +66,8 @@ $Distance = array_filter($Distance);
 asort($Distance, SORT_NUMERIC);
 $profiles = array_keys($Distance);
 
-if($_POST['speciality']){
-	// debug($Distance);
+$featuredDoctors = getFeaturedDoctors();
 
-  $featuredDoctors = getFeaturedDoctors($_POST['speciality']);
-}
-  
 ?>
 
 <script>
@@ -224,7 +220,30 @@ $(window).scroll(function () {
 							<div class="tg-docprofile-content">
 								<div class="tg-heading-border tg-small">
 									<h3><a href="/doctor/doctor-details.html?doctor_profile_id=<?=$profile_id . $sessionParams?>">Dr. <?php echo $doctorName; ?>  </a></h3> <br><?php echo getSpecialityName($profileDetails['speciality_id']); ?>
-								</div>                          
+
+								</div>    
+
+                <?php
+               
+                  $reviewsStarAverage = getReviewsStarAverage($profile_id);
+
+                  //echo $reviewsStarAverage;
+                ?>
+                <span class="tg-stars" style="text-align: justify !important;">
+                  <?php 
+                  if ($reviewsStarAverage > 0){
+                    for($x =1; $x <= round($reviewsStarAverage); $x++) {
+                  
+                    ?>
+
+                    <i class="fa fa-star" ></i>
+                  
+                    <?php
+                    }
+                  }
+                  ?>
+                  <!-- <i class="fa fa-star-half-empty"></i>-->
+                    </span>                      
 								<div class="tg-description"> 
 									<p class="ellipsis"><?=$profileDetails['address']?></p>
 									
@@ -654,6 +673,8 @@ $(document).ready(function() {
                 <?php foreach ($featuredDoctors as $featuredDoctor) :?>
                   <?php
                     $featuredocProfileId = $featuredDoctor['profile_id'];
+
+                    $featuredoctorName = str_replace('Dr', '', $featuredDoctor['first_name'].' '.$featuredDoctor['last_name']);
                   ?>
                   <li>
                     <figure>
@@ -668,7 +689,7 @@ $(document).ready(function() {
                     <?php endif; ?>
                     </figure>
                     <div class="tg-description">
-                      <h3><a href="/doctor/doctor-details.html?doctor_profile_id=<?=$featuredocProfileId . $sessionParams?>">Dr. <?=$featuredDoctor['first_name'] . ' ' . $featuredDoctor['last_name']?></a></h3>
+                      <h3><a href="/doctor/doctor-details.html?doctor_profile_id=<?=$featuredocProfileId . $sessionParams?>">Dr. <?=$featuredoctorName."(".getSpecialityName($featuredDoctor['speciality_id']).")"?></a></h3>
                       <?php
                         $reviewsStarAverage = getReviewsStarAverage($featuredocProfileId);
 

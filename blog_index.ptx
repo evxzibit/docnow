@@ -85,6 +85,9 @@
 					</div>
 				</div>
 			</div>
+			<footer id="footer" class="tg-haslayout">
+				{%container 3%}
+			</footer>
 		</main>
 		<!--************************************
 				Main End
@@ -92,9 +95,7 @@
 		<!--************************************
 				Footer Start
 		*************************************-->
-		<footer id="footer" class="tg-haslayout">
-			{%container 3%}
-		</footer>
+		
 		<!--************************************
 				Footer End
 		*************************************-->
@@ -105,7 +106,7 @@
 	<!--************************************
 		Sign In Sign Up Light Box Start
 	*************************************-->
-		<div class="modal fade tg-user-modal" tabindex="-1" role="dialog">
+	<div class="modal fade tg-user-modal" tabindex="-1" role="dialog">
 		<div class="tg-modal-content">
 			<ul class="tg-modaltabs-nav" role="tablist">
 				<li role="presentation" class="active"><a href="#tg-signin-formarea" aria-controls="tg-signin-formarea" role="tab" data-toggle="tab">sign in</a></li>

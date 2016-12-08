@@ -63,6 +63,9 @@
 		    Confirmed
 		  </label>
 		</div> -->
+		<?
+		if(strtotime(date('Y-m-d H:i:s')) < strtotime($appointmentDetails['start_date'])){
+		?>
 		<div class="radio">
 		  <label>
 		    <input type="radio" name="confirmation" class="confirmation-radio" value="reschedule">
@@ -70,6 +73,7 @@
 		  </label>
 		</div>
 		<input type="hidden" name="appointment_id" value="<?=$appointment_id?>">
+		<?}?>
 
 		<!-- <div id="reschedule-times-div" class="reschedule-times hidden">
 			<div class="form-group">

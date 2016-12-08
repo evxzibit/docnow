@@ -27,7 +27,8 @@
 	$specialities = getSpecialities();
 	$doctorSpeciality = isset($specialities[$profileDetails['speciality_id']]) ? $specialities[$profileDetails['speciality_id']] : 'none';
 
-	$featuredDoctors = getSimilarDoctors($profileDetails['speciality_id'], $doctorProfileId);
+	//$featuredDoctors = getSimilarDoctors($profileDetails['speciality_id'], $doctorProfileId);
+	$featuredDoctors = getFeaturedDoctors();
 	$profDetails = RetrieveProfileDetails ($doctorProfileId);
 	/*$upcomingAppointments = getUpcomingAppointments($Profile_ID);
 	$appointments = getDoctorAppointments($Profile_ID);*/
@@ -44,7 +45,7 @@
  	var customIcons = {
            
       orange: {
-        icon: '/live/images/orangemarker.png',
+        icon: '/live/images/02.png',
         shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
       }
       
@@ -66,7 +67,7 @@
         var speciality = '<?php echo $specialities [$profileDetails['speciality_id']];?>';
         var type = "orange";
         var point = new google.maps.LatLng(parseFloat('<?=$profileDetails['lat']?>'), parseFloat('<?=$profileDetails['lng']?>'));
-        var html = "<strong>" + name +  "(" + speciality + ") </strong><br />Address:" + address + "<br /> <a style='position: static;' href='/booking/&profile_id="+profile_id+"'>Book Now</a></div>";
+        var html = "<strong>" + name +  "(" + speciality + ") </strong><br />Address:" + address + "<br /> ";
         var icon = customIcons[type] || {};
         var marker = new google.maps.Marker({
             map: map,
@@ -145,8 +146,8 @@ include_once 'flash_message.php';
 								<h2><?=$doctorName?></h2>
 							</div>
 							<div class="tg-description">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. Eascxcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
-								<br>
+								<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. Eascxcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+								<br> -->
 								<ul class="tg-doccontactinfo">
 									<li>
 										<i class="fa fa-map-marker"></i>
@@ -165,7 +166,32 @@ include_once 'flash_message.php';
 										<span><?=$profileDetails['fax_number'];?></span>
 									</li>
 									
+									
 								</ul>
+								<br><br>
+								<p>
+									<?
+										$reviewsStarAverage = getReviewsStarAverage($doctorProfileId);
+
+						                  //echo $reviewsStarAverage;
+						                ?>
+						                <span class="tg-stars" style="text-align: justify !important;padding-top: 20px;">
+						                  <?php 
+						                  if ($reviewsStarAverage > 0){
+						                    for($x =1; $x <= round($reviewsStarAverage); $x++) {
+						                  
+						                    ?>
+
+						                    <i class="fa fa-star" ></i>
+						                  
+						                    <?php
+						                    }
+						                  }
+						                  ?>
+						                  <!-- <i class="fa fa-star-half-empty"></i>-->
+						                    </span>                
+
+									</p>
 								<!-- <a href="/booking/&Session_ID=<?=$Session_ID?>&profile_id=<?=$profileDetails['profile_id']?>" class="pull-right btn-success btn-lg" id="book">Book Dr <?=$profileDetails['first_name']." ".$profileDetails['last_name'];?></a> -->
 								<?php if($userHasActiveAppointment) :?>
 									<?php $fullName = $profileDetails['first_name'] . " " . $profileDetails['last_name']; ?>
@@ -256,9 +282,57 @@ include_once 'flash_message.php';
 				<div class="col-md-12" id="booking">
 					<h4>Book Dr <?=$profileDetails['first_name']." ".$profileDetails['last_name'];?></h4>
 					<div id="calendar_<?=$i?>"> 
+					<script type="text/javascript">          
+                 
+			                  $(document).ready(function() {
+
+			                    var trs = $("#internalActivities<?=$i?> tr");
+			                    var btnMore = $("#show_more<?=$i?>");
+			                    var btnLess = $("#show_less<?=$i?>");
+			                    var trsLength = trs.length;
+			                    var currentIndex = 5;
+
+			                    trs.hide();
+			                    trs.slice(0, 5).show(); 
+			                    checkButton<?=$i?>(trsLength, btnMore, btnLess);
+
+			                    btnMore.click(function (e) { 
+			                        e.preventDefault();
+			                        $("#internalActivities<?=$i?> tr").slice(currentIndex, currentIndex + 5).show();
+			                        currentIndex += 5;
+			                        checkButton<?=$i?>(trsLength,btnMore, btnLess);
+			                    });
+
+			                    btnLess.click(function (e) { 
+			                        e.preventDefault();
+			                        $("#internalActivities<?=$i?> tr").slice(currentIndex - 5, currentIndex).hide();          
+			                        currentIndex -= 5;
+			                        checkButton<?=$i?>(trsLength, btnMore, btnLess);
+			                    });
+
+			                  });
+
+			                  function checkButton<?=$i?>(trsLength, btnMore, btnLess) {
+
+			                      var currentLength = $("#internalActivities<?=$i?> tr:visible").length;
+			                      
+			                      if (currentLength >= trsLength) {
+			                          btnMore.hide();            
+			                      } else {
+			                          btnMore.show();   
+			                      }
+			                      
+			                      if (trsLength > 5 && currentLength > 5) {
+			                          btnLess.show();
+			                      } else {
+			                          btnLess.hide();
+			                      }
+			                      
+			                  }
+			                </script>
 						<input type="hidden" name="nextdate" id="nextdate_<?=$i?>" value="<?=$nextdate?>">    
                 		<input type="hidden" name="startdate" id="startdate_<?=$i?>" value="<?=$startdate?>"> 
-						<table style="width:100%">
+						<table style="width:100%" id="internalActivities<?=$i?>">
 						  <tr>
 							  <?
 							  if(date('Y-m-d') != $days[0]){
@@ -281,7 +355,7 @@ include_once 'flash_message.php';
 
 						        if(!in_array($start, $bookedDates, true)){    
 
-						          echo '<td><a href="/booking?profile_id='.$doctorProfileId.'&start_date='.$start.'&end_date='.$end.'">'.date('H:i',strtotime($start)).'-'.date('H:i', strtotime($end)).'</a></td>';
+						          echo '<td><a href="/booking?profile_id='.$doctorProfileId.'&start_date='.$start.'&end_date='.$end.'&Session_ID=' . $Session_ID . ' ">'.date('H:i',strtotime($start)).'-'.date('H:i', strtotime($end)).'</a></td>';
 
 						        }else{
 
@@ -295,6 +369,12 @@ include_once 'flash_message.php';
 						    ?>
 
 						</table>
+						<div class="form-group">
+	                    <button id="show_more<?=$i?>" class="tg-btn tg-btn-lg" >Show More</button>
+	                  </div>
+	                  <div class="form-group">
+	                    <button id="show_less<?=$i?>" class="tg-btn tg-btn-lg" >Show Less</button>
+                  		</div>
 					</div>
 				</div>
 				<div class="tg-doc-feature">
@@ -351,6 +431,7 @@ include_once 'flash_message.php';
 										<?php
 											$featuredocProfileId = $featuredDoctor['profile_id'];
 											$reviewsStarAverage = getReviewsStarAverage($featuredDoctor['profile_id']);
+											$featuredoctorName = str_replace('Dr', '', $featuredDoctor['first_name'].' '.$featuredDoctor['last_name']);
 										?>
 										<li>
 											<figure>
@@ -365,7 +446,7 @@ include_once 'flash_message.php';
 											<?php endif; ?>
 											</figure>
 											<div class="tg-description">
-												<h3><a href="/doctor/doctor-details.html?doctor_profile_id=<?=$featuredocProfileId?>">Dr. <?=$featuredDoctor['first_name'] . ' ' . $featuredDoctor['last_name']?></a></h3>
+												<h3><a href="/doctor/doctor-details.html?doctor_profile_id=<?=$featuredocProfileId?>">Dr. <?=$featuredoctorName?></a></h3>
 												<span class="tg-stars">
 													<?php 
 							                        if ($reviewsStarAverage > 0){
