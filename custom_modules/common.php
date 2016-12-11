@@ -160,7 +160,7 @@ function getUpcomingAppointments($profileId) {
 }
 
 function getDoctorAppointments($profileId) {
-	$SQL = 'SELECT tUsers.first_name, tUsers.last_name, tAppointments.title, tAppointments.start_date, tAppointments.confirmed,tAppointments.end_date, tAppointments.id FROM tAppointments LEFT JOIN tUsers ON tUsers.profile_id = tAppointments.patient_profile_id
+	$SQL = 'SELECT tUsers.first_name, tUsers.last_name, tAppointments.title, tAppointments.start_date,tAppointments.payment_made, tAppointments.confirmed,tAppointments.end_date, tAppointments.id, tAppointments.payment_amount FROM tAppointments LEFT JOIN tUsers ON tUsers.profile_id = tAppointments.patient_profile_id
 		WHERE tAppointments.doctor_profile_id = "' . $profileId . '"';
 
 	$Query = QueryDB($SQL);
@@ -315,20 +315,56 @@ function confirmAppointment($data) {
 	$resheduleStartDate = $data['reschedule_start_date'];
 	$resheduleSEndDate = $data['reschedule_end_date'];
 	$appointmentId = $data['appointment_id'];
+	$appointmentDetails = getPatientAppointmentById($appointmentId);
 
 	if (!$confirmation){
 		$sql = 'Update tAppointments set reschedule = 1, confirmed = 1, start_date = "' . $resheduleStartDate . '", end_date = "' . $resheduleSEndDate . '" WHERE id = "' . $appointmentId . '"';
-	} else {
-		$sql = 'Update tAppointments set confirmed = 1, reschedule = 0 WHERE id = "' . $appointmentId . '"';
+		UpdateDB($sql);
+		sendPatienBookingConfirmation($appointmentDetails);
+	} elseif($data['confirmation'] == 'request-payment') {
+		$sql = 'Update tAppointments set payment_request_sent = 1, reschedule = 0, payment_request_sent_date = "' . date('Y-m-d H:i:s') . '" WHERE id = "' . $appointmentId . '"';
+		UpdateDB($sql);
+		sendPatientPaymentRequest($appointmentDetails);
 	}
-	
-    UpdateDB($sql);
-    $appointmentDetails = getPatientAppointmentById($appointmentId);
-    sendPatienBookingConfirmation($appointmentDetails);
+}
+
+function sendPatientPaymentRequest($appointmentDetails) {
+	$mailId = 8;
+    $welcomeMessageDetails = RetrieveMessage($mailId);
+    $nameFrom = $welcomeMessageDetails['From_STRING'];
+    $emailFrom = $welcomeMessageDetails['FromEmail_STRING'];
+    $ccTo = $welcomeMessageDetails['CCTo_STRING'];
+    $replyTo = $welcomeMessageDetails['ReplyTo_STRING'];
+    $subject = stripslashes($welcomeMessageDetails['MailSubject_STRING']);
+    $textMessage = stripslashes($welcomeMessageDetails['MailText_STRING']);
+    $htmlMessage = stripslashes($welcomeMessageDetails['MailHTML_STRING']);
+    $priority = $welcomeMessageDetails['Priority_NUM'];
+    $patientName = $appointmentDetails['patientName'];
+    $patientEmail = $appointmentDetails['email'];
+    $patientCellphone = $appointmentDetails['cell_phone'];
+    $appointmentTime = date('d-F-Y H:i', strtotime($appointmentDetails['start_date'])) . ' ' . date('d-F-Y H:i', strtotime($appointmentDetails['end_date']));
+
+    $doctorName = $appointmentDetails['doctorName'];
+    $paymentMethod = $appointmentDetails['paymentMethod'];
+    $doctorSpeciality = $appointmentDetails['doctorSpeciality'];
+    $doctorAddress = $appointmentDetails['doctorAddress'];
+    $appointmentPaymentLink = ThisURL . ROOT_URL . '/pay_appointment.php?id=' . $appointmentDetails['id'];
+
+    $htmlMessage = str_replace("*||paymentMethod||*", $paymentMethod, $htmlMessage);
+    $htmlMessage = str_replace("*||doctorName||*", $doctorName, $htmlMessage);
+    $htmlMessage = str_replace("*||patientName||*", $patientName, $htmlMessage);
+    $htmlMessage = str_replace("*||appointmentTime||*", $appointmentTime, $htmlMessage);
+    $htmlMessage = str_replace("*||patientEmail||*", $patientEmail, $htmlMessage);
+    $htmlMessage = str_replace("*||patientCell||*", $patientCellphone, $htmlMessage);
+    $htmlMessage = str_replace("*||doctorAddress||*", $doctorAddress, $htmlMessage);
+    $htmlMessage = str_replace("*||doctorSpeciality||*", $doctorSpeciality, $htmlMessage);
+    $htmlMessage = str_replace("*||appointmentPaymentLink||*", $appointmentPaymentLink, $htmlMessage);
+
+    SendMultipartMIMEMail ($patientEmail, $nameFrom.' <'.$emailFrom.'>', $ccTo, $replyTo, $subject, $textMessage, $htmlMessage, $priority);
 }
 
 function getAppointmentById($appointment_id){
-	$SQL = "SELECT start_date, end_date, tAppointments.id, first_name, last_name,email, cell_phone,	tPayment_Methods.name as payment_method
+	$SQL = "SELECT start_date, end_date, tAppointments.id, first_name, last_name,email,payment_made, cell_phone,	tPayment_Methods.name as payment_method
 			FROM tAppointments
 			LEFT JOIN tPayment_Methods ON tPayment_Methods.id = tAppointments.payment_method
 			 WHERE tAppointments.id={$appointment_id}";
@@ -399,11 +435,17 @@ function getPatientAppointmentById($appointmentId) {
 
 	$SQL = "SELECT tUsers.address AS doctorAddress, 
 		CONCAT(tUsers.first_name, ' ', tUsers.last_name) as doctorName, 
-		CONCAT(tAppointments.first_name, ' ', tAppointments.last_name) as patientName, 
+		CONCAT(tAppointments.first_name, ' ', tAppointments.last_name) as patientName,
+		tUsers.email as doctorEmail,
+		tAppointments.payment_amount,
+		tAppointments.payment_date,
+		tAppointments.first_name,
+		tAppointments.last_name,
 		tAppointments.start_date, tAppointments.end_date, 
 		tPayment_Methods.name as paymentMethod, 
 		tAppointments.cell_phone, 
-		tAppointments.email, 
+		tAppointments.email,
+		tAppointments.id, 
 		tSpecialty.specialty_name AS `doctorSpeciality` 
 		FROM tAppointments 
 		LEFT JOIN tUsers on tUsers.profile_id = tAppointments.doctor_profile_id 
@@ -600,6 +642,49 @@ function loadPatientNotifications($patientProfileId) {
     }
 
     return $notifications;
+}
+
+function savePatientPayment($appointmentId, $paidAmount) {
+	$sql = 'Update tAppointments set payment_made = 1,  payment_amount = "' . $paidAmount . '", payment_date = "' . date('Y-m-d H:i:s') . '" WHERE id = "' . $appointmentId . '"';
+	UpdateDB($sql);
+	sendDocotorPaymentNotification($appointmentId);	
+}
+
+function sendDocotorPaymentNotification($appointmentId) {
+	$data = getPatientAppointmentById($appointmentId);
+
+    $mailId = 9;
+    $welcomeMessageDetails = RetrieveMessage($mailId);
+    $nameFrom = $welcomeMessageDetails['From_STRING'];
+    $emailFrom = $welcomeMessageDetails['FromEmail_STRING'];
+    $ccTo = $welcomeMessageDetails['CCTo_STRING'];
+    $replyTo = $welcomeMessageDetails['ReplyTo_STRING'];
+    $subject = stripslashes($welcomeMessageDetails['MailSubject_STRING']);
+    $textMessage = stripslashes($welcomeMessageDetails['MailText_STRING']);
+    $htmlMessage = stripslashes($welcomeMessageDetails['MailHTML_STRING']);
+    $priority = $welcomeMessageDetails['Priority_NUM'];
+    $patientName = $data['patientName'];
+    $patientEmail = $data['email'];
+    $patientCellphone = $data['cell_phone'];
+    $appointmentTime = date('d-F-Y H:i', strtotime($data['start_date'])) . ' ' . date('d-F-Y H:i', strtotime($data['end_date']));
+
+    $doctorName = $data['doctorName'];
+    $paymentMethod = $data['paymentMethod'];
+    $paymentAmount = $data['payment_amount'];
+    $paymentDate = $data['payment_date'];
+    $doctorEmail = $data['doctorEmail'];
+
+    $htmlMessage = str_replace("*||paymentMethod||*", $paymentMethod, $htmlMessage);
+    $htmlMessage = str_replace("*||paymentAmount||*", $paymentAmount, $htmlMessage);
+    $htmlMessage = str_replace("*||paymentDate||*", $paymentDate, $htmlMessage);
+    $htmlMessage = str_replace("*||doctorName||*", $doctorName, $htmlMessage);
+    $htmlMessage = str_replace("*||patientName||*", $patientName, $htmlMessage);
+    $htmlMessage = str_replace("*||appointmentTime||*", $appointmentTime, $htmlMessage);
+    $htmlMessage = str_replace("*||patientEmail||*", $patientEmail, $htmlMessage);
+    $htmlMessage = str_replace("*||patientCell||*", $patientCellphone, $htmlMessage);
+
+
+    SendMultipartMIMEMail ($doctorEmail, $nameFrom.' <'.$emailFrom.'>', $ccTo, $replyTo, $subject, $textMessage, $htmlMessage, $priority);	
 }
 
 ?>

@@ -7,7 +7,7 @@
 	global $Session_ID;
 
 	if (!isset($_POST['booking-submit']) || empty($_POST)) {
-		redirectToPage(ThisURL, 'Cannot find booking', 'alert-error');
+		redirectToPage(ThisURL, 'Cannot find booking', 'alert-danger');
 	}	
 
 	extract($_POST);

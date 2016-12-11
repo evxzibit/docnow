@@ -36,13 +36,14 @@
 		if (calendarDataJson > '') {
 			$.each(calendarDataJson, function(key, value) {
 				var temp = {};
+				var bookingTitle = value.payment_made == 1 ? value.title + '[PAID]' : value.title;
 				temp = {
-						title : value.title,
+						title : bookingTitle,
 						start : value.start_date,
 						end: value.end_date,
 						eventId: value.id,
 						// url: value.id,
-						color: value.confirmed == '1' ? '#51c5d7' : '#f58320'
+						color: value.payment_made == 1 ? '#51c5d7' : '#f58320';
 					};
 				eventData.push(temp);
 			});

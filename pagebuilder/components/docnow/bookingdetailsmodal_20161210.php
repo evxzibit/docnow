@@ -28,7 +28,6 @@
 </div>
 <span class="session-write-script hidden"><?='/live/session_write.php'?></span>
 <form id="confirm-appointment-form" action="/live/confirmappointment.php" method="post">
-<input type="hidden" name="appointment_id" value="<?=$appointment_id?>">
 <div class="modal-body">
 	<div class="table-container booking-details">
 	<table class="table-responsive">
@@ -58,16 +57,12 @@
 		</tr>
 	</table>
 
-		<?php if (!$appointmentDetails['payment_made']) :?>
-			<div class="radio">
-			  <label>
-			    <input type="radio" name="confirmation" class="confirmation-radio" value="request-payment" >
-			    Request payment
-			  </label>
-			</div>
-		<?php else: ?>
-			<div class="alert alert-success">Paid</div>
-		<?php endif;?>
+		<!-- <div class="radio">
+		  <label>
+		    <input type="radio" name="confirmation" class="confirmation-radio" value="confirmed" checked>
+		    Confirmed
+		  </label>
+		</div> -->
 		<?
 		if(strtotime(date('Y-m-d H:i:s')) < strtotime($appointmentDetails['start_date'])){
 		?>
@@ -77,6 +72,7 @@
 		    Reschedule
 		  </label>
 		</div>
+		<input type="hidden" name="appointment_id" value="<?=$appointment_id?>">
 		<?}?>
 
 		<!-- <div id="reschedule-times-div" class="reschedule-times hidden">
@@ -123,8 +119,8 @@
 	</div>
 
 	<div class="modal-footer">
-		<button type="button" class="btn btn-default" data-dismiss="modal">Close window</button>
-		<button type="submit" class="btn btn-success" id="confirm-appointment-btn" value="reshedule-appointment">Save changes</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<button type="submit" class="btn btn-success" id="confirm-appointment-btn">Save changes</button>
 	</div>
 
 	</form>
@@ -146,11 +142,8 @@
 
 		$('.confirmation-radio')
 			.change(function() {
-				if ($(this).val() == 'reschedule') {
-					$('#reschedule-times-div').removeClass('hidden');
-				} else {
-					$('#reschedule-times-div').addClass('hidden');
-				}
+				console.log($(this).val());
+				$('#reschedule-times-div').toggleClass('hidden');
 			});
 
 		confirmAppointmentForm.on('submit',function (e) {

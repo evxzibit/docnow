@@ -775,4 +775,16 @@ if ((defined ("DefaultContentType")) && (defined ("DefaultCharset"))) {
 if (defined ("DB_INCLUDED")) {
 	ConnectToDB ("127.0.0.1", None, "docnow", "root", "tL3tj57xJLSUHbV");
 }
+
+/* Test payfast details*/
+define('PAYFAST_SERVER', "TEST");
+define('PAYFAST_MERCHANT_ID', "10003957");
+define('PAYFAST_MERCHANT_KEY', "0rr5emzz5mpfw");
+define('APPOINTMENT_FEE', 700);
+
+/* live payfast details*/
+/*define('PAYFAST_SERVER', "TEST");
+define('PAYFAST_MERCHANT_ID', "11651788");
+define('PAYFAST_MERCHANT_KEY', "v5qdeerncg4eg");
+ */
 ?>

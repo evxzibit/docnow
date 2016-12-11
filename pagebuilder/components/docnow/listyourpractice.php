@@ -46,13 +46,13 @@
 				</div>
 			</div>
 		</div>
-		<span class="home-url hidden"><?=ThisURL?></span>
-		<span class="session-write-script hidden"><?='/live/session_write.php'?></span>
-		<div class="alert alert-danger sign-up-error-div hidden">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<span class="sign-up-error-span"></span>
-		</div>		
 		<div class="col-md-12 col-sm-12 col-xs-12 tg-packageswidth ">
+			<span class="home-url hidden"><?=ThisURL?></span>
+			<span class="session-write-script hidden"><?='/live/session_write.php'?></span>
+			<div class="alert alert-danger sign-up-error-div hidden">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<span class="sign-up-error-span"></span>
+			</div>		
 			<form id="doctor-signup-form" action="/live/signup.php" method="post">
 				<?=PrintHiddenField ("Session_ID", $Session_ID);?>
 				<input type="hidden" name="doctor" value="1">
