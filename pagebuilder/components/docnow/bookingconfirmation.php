@@ -10,6 +10,9 @@
 		redirectToPage(ThisURL, 'Cannot find booking', 'alert-danger');
 	}	
 
+	session_start();
+	$_SESSION['booking-data'] = $_POST;
+
 	extract($_POST);
 
 	$paymentMethod = getPaymentMethodById($payment_method);
@@ -74,23 +77,7 @@
 				</tbody>
 			</table>
 
-			<form action="/booking/save-booking.html" method="post">
-				<input type="hidden" name="title" value="<?=$title?>"/>
-				<input type="hidden" name="start_date" value="<?=$start_date?>"/>
-				<input type="hidden" name="end_date" value="<?=$end_date?>"/>
-				<?php
-					$patient_profile_id = $patient_exist ? $patient_profile_id : '';
-				?>
-				<input type="hidden" name="doctor_profile_id" value="<?=$doctor_profile_id?>"/>
-				<input type="hidden" name="patient_profile_id" value="<?=$patient_profile_id ?>"/>
-
-				<input type="hidden" name="payment_method" value="<?=$payment_method?>"/>
-				<input type="hidden" name="first_name"  value="<?=$first_name?>" >
-				<input type="hidden" name="last_name" value="<?=$last_name?>" >
-				<input type="hidden" name="email" value="<?=$email?>">
-				<input type="hidden" name="cell_phone" value="<?=$cell_phone?>" >
-				<input type="submit" class="btn btn-success" name="confirm-booking" value="Next" />
-			</form>
+			<a href="/booking/save-booking.html?Session_ID=<?=$Session_ID?>" class="btn btn-success">Next</a>
 			<a href="#" class="pull-right">Get Directions</a>
 		</div>
 	</div>

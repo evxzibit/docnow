@@ -9,22 +9,28 @@
 	global $Session_ID;
 	global $UserStatus;
 
+	session_start();
 
-	if (!isset($_POST['confirm-booking']) || empty($_POST)) {
+	if (!isset($_SESSION['booking-data']) || empty($_SESSION)) {
 		redirectToPage(ThisURL . '?Session_ID=' . $Session_ID, 'Cannot find booking data.', 'alert-danger');
-	}	
-	$appointmentId=saveBooking($_POST);
-	if ($appointmentId) {		
-		sendDoctorBookingEmail($_POST);
-		$doctorDetails = getProflieRegDetails($_POST['doctor_profile_id']);
+	}
+
+	$data = $_SESSION['booking-data'];
+	$data['patient_profile_id'] = $data['patient_exist'] ? $data['patient_profile_id'] : '';
+
+	$appointmentId=saveBooking($data);
+	if ($appointmentId) {
+		sendDoctorBookingEmail($data);
+		$doctorDetails = getProflieRegDetails($data['doctor_profile_id']);
 		$doctorFullName = $doctorDetails['first_name'] . ' ' . $doctorDetails['last_name'];
 		$appointmentDetails = getPatientAppointmentById($appointmentId);
 		sendPatienBookingConfirmation($appointmentDetails);
-		$patientProfileDetails = getProflieRegDetails($_POST['patient_profile_id']);
-		$url = !empty($patientProfileDetails) ? ThisURL . 'patients/dashboard/?Session_ID=' . $Session_ID : ThisURL . '?Session_ID=' . $Session_ID;
 
+		$url = $data['patient_exist'] ? ThisURL . '/patients/dashboard/?Session_ID=' . $Session_ID : ThisURL . '?Session_ID=' . $Session_ID;
+		unset($_SESSION['booking-data']);
 		redirectToPage($url, 'Thank you for making a booking with Dr ' . $doctorFullName . ' an email has been sent to you with your booking confirmation details..', 'alert-success');
 	} else {
+		unset($_SESSION['booking-data']);
 		redirectToPage(ThisURL . '?Session_ID=' . $Session_ID, 'Cannot save booking data.', 'alert-danger');
 	}
 

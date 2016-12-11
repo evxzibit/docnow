@@ -29,6 +29,7 @@
 	
 
 	$doctorFulname = 'Dr. ' . $doctorDetails['first_name'] . ' ' . $doctorDetails['last_name'];
+	$doctorProfileId = $doctorDetails['profile_id'];
 	if ($Profile_ID) {
 		$patientDetails = getProflieRegDetails($Profile_ID);
 	}
@@ -198,8 +199,9 @@
 					</div>
 				</div> -->
 			  <input type="submit" class="btn btn-success" name="booking-submit" value="Next" />
+			  <a class="btn btn-warning pull-right" href="/doctor/doctor-details.html?doctor_profile_id=<?=$doctorProfileId?>">Back</a>
 			</form>
-			<br>			
+			<br>	
 		</div>
 		
 	</div>
