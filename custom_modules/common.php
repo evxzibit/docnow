@@ -426,6 +426,7 @@ function sendPatienBookingConfirmation($data) {
     $htmlMessage = str_replace("*||patientCell||*", $patientCellphone, $htmlMessage);
     $htmlMessage = str_replace("*||doctorAddress||*", $doctorAddress, $htmlMessage);
     $htmlMessage = str_replace("*||doctorSpeciality||*", $doctorSpeciality, $htmlMessage);
+    $htmlMessage = str_replace("*||url||*", ThisURL, $htmlMessage);
 
     SendMultipartMIMEMail ($patientEmail, $nameFrom.' <'.$emailFrom.'>', $ccTo, $replyTo, $subject, $textMessage, $htmlMessage, $priority);
 
