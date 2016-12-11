@@ -50,6 +50,9 @@ function saveUser($data) {
     $landLine = isset($data['land_line']) ? addslashes($data['land_line']) : null;
     $cellPhone = isset($data['cell_phone']) ? addslashes($data['cell_phone']) : null;
     $birthDate = isset($data['birth_date'])  ? addslashes($data['birth_date']) : null;
+    $address = $data['address'];
+    $lat = $data['lat'];
+    $lng = $data['lng'];
     $address1 = isset($data['address_1']) ? addslashes($data['address_1']) : null;
     $address2 = isset($data['address_2']) ? addslashes($data['address_2']) : null;
     $city = isset($data['city']) ? addslashes($data['city']) : null;
@@ -59,7 +62,7 @@ function saveUser($data) {
 
     $specialityId = isset($data['speciality_id']) ? $data['speciality_id'] : null;
 
-    $SQL = "INSERT INTO tUsers (profile_id, doctor, first_name, last_name, email, land_line, cell_phone, birth_date, practice_number, address_1, address_2, city, postal_code, province, speciality_id) VALUES ('$profileId', '$doctor', '$firstName', '$lastName', '$email','$landLine', '$cellPhone', '$birthDate', '$practiceNumber', '$address1' , '$address2', '$city', '$postalCode', '$province', '$specialityId')";
+    $SQL = "INSERT INTO tUsers (profile_id, doctor, first_name, last_name, email, land_line, cell_phone, birth_date, practice_number, address, lat, lng, address_1, address_2, city, postal_code, province, speciality_id) VALUES ('$profileId', '$doctor', '$firstName', '$lastName', '$email','$landLine', '$cellPhone', '$birthDate', '$practiceNumber', '$address', '$lat', '$lng', '$address1' , '$address2', '$city', '$postalCode', '$province', '$specialityId')";
     return InsertDB($SQL, 'id');
 }
 
@@ -70,7 +73,8 @@ function RetrieveMessage ($Mail_ID) {
 }
 
 function sendEmailVerification($data) {
-    $mailId = $data['doctor'] ? 1 : 2;
+    // $mailId = $data['doctor'] ? 1 : 2;
+    $mailId = 2;
     $welcomeMessageDetails = RetrieveMessage($mailId);
     $nameFrom = $welcomeMessageDetails['From_STRING'];
     $emailFrom = $welcomeMessageDetails['FromEmail_STRING'];
