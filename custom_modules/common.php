@@ -444,7 +444,8 @@ function getPatientAppointmentById($appointmentId) {
 		tAppointments.last_name,
 		tAppointments.start_date, tAppointments.end_date, 
 		tPayment_Methods.name as paymentMethod, 
-		tAppointments.cell_phone, 
+		tAppointments.cell_phone,
+		tAppointments.doctor_profile_id,
 		tAppointments.email,
 		tAppointments.id, 
 		tSpecialty.specialty_name AS `doctorSpeciality` 
@@ -686,6 +687,210 @@ function sendDocotorPaymentNotification($appointmentId) {
 
 
     SendMultipartMIMEMail ($doctorEmail, $nameFrom.' <'.$emailFrom.'>', $ccTo, $replyTo, $subject, $textMessage, $htmlMessage, $priority);	
+}
+
+
+function getPatientFavourites($patient_profile_id) {
+	
+    $SQL = "SELECT * FROM tPatientFavourites WHERE patient_profile_id={$patient_profile_id}";
+    $Query = QueryDB($SQL);
+    $patientFavourites = array();
+    while ($Result = ReadFromDB($Query)){
+        $patientFavourites[] = $Result;
+    }
+
+    return $patientFavourites;   
+}
+
+function getPatientAppointments($patientProfileId, $search = array()) {
+	$filter = '';
+	if (!empty($search)) {
+		if (isset($search['status'])) :
+			switch ($search['status']) {
+				case 'cancel':
+					$filter .= ' AND tAppointments.cancel = 1';
+					break;
+				case 'future':
+					$filter .= ' AND tAppointments.end_date >= Now() AND tAppointments.cancel = 0';
+					break;
+				case 'past':
+					$filter .= ' AND tAppointments.end_date < Now()';
+					break;
+				default:
+					$filter = '';
+					break;
+			}
+		endif;
+	}
+
+	// How many items to list per page
+    $limit = 20;
+
+	$SQL = "SELECT 
+			tUsers.profile_id, 
+			tUsers.address,
+			tUsers.email,
+			tUsers.cell_phone,
+			CONCAT(tUsers.first_name, ' ', tUsers.last_name) as doctorName,
+			tUsers.profilepic, 
+			tAppointments.start_date, 
+			tAppointments.end_date, 
+			tAppointments.id,
+			tAppointments.cancel
+			FROM tAppointments
+			LEFT JOIN tUsers on tUsers.profile_id = tAppointments.doctor_profile_id
+			WHERE tAppointments.patient_profile_id = {$patientProfileId}
+			$filter
+			ORDER BY tAppointments.start_date DESC
+			LIMIT $limit";
+
+
+
+	$Query = QueryDB($SQL);
+	$total = CountRowsDB ($Query);
+
+	// How many ;pages will there be
+    $pages = ceil($total / $limit);
+
+    // What page are we currently on?
+    $page = min($pages, filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array(
+        'options' => array(
+            'default'   => 1,
+            'min_range' => 1,
+        ),
+    )));
+
+	$appointments = array();
+	while ($Result = ReadFromDB($Query)) {
+		$appointments['appointments'][] = $Result;
+	}
+
+	// Calculate the offset for the query
+    $offset = ($page - 1)  * $limit;
+
+    // Some information to display to the user
+    $start = $offset + 1;
+    $end = min(($offset + $limit), $total);
+
+	// The "back" link
+    $prevlink = ($page > 1) ? '<a href="?page=1" title="First page">&laquo;</a> <a href="?page=' . ($page - 1) . '" title="Previous page">&lsaquo;</a>' : '<span class="disabled">&laquo;</span> <span class="disabled">&lsaquo;</span>';
+
+    // The "forward" link
+    $nextlink = ($page < $pages) ? '<a href="?page=' . ($page + 1) . '" title="Next page">&rsaquo;</a> <a href="?page=' . $pages . '" title="Last page">&raquo;</a>' : '<span class="disabled">&rsaquo;</span> <span class="disabled">&raquo;</span>';
+
+    // Display the paging information
+    $appointments['paging'] = '<div id="paging"><p>' . $prevlink . ' Page ' . $page . ' of ' . $pages . ' pages, displaying ' . $start . '-' . $end . ' of ' . $total . ' results ' . $nextlink . ' </p></div>';
+
+	return $appointments;
+}
+
+function cancelBooking($appointmentId) {
+	$sql = 'Update tAppointments set cancel = 1 WHERE id = "' . $appointmentId . '"';
+	sendCancellationEmail($appointmentId);
+    return UpdateDB($sql);
+}
+
+function rescheduleAppointment($data) {
+	$resheduleStartDate = $data['reschedule_start_date'];
+	$resheduleSEndDate = $data['reschedule_end_date'];
+	$appointmentId = $data['appointment_id'];
+	$appointmentDetails = getPatientAppointmentById($appointmentId);
+
+	$message = array(
+		'sessionMessage' => 'Cannot reschedule booking please try again.',
+		'sessionMessageClass' => 'alert-danger'
+	);
+
+	$sql = 'Update tAppointments set reschedule = 1, start_date = "' . $resheduleStartDate . '", end_date = "' . $resheduleSEndDate . '" WHERE id = "' . $appointmentId . '"';
+	$updated = UpdateDB($sql);
+
+	if ($updated) {
+		$message = array(
+			'sessionMessage' => 'Booking with Dr. ' . $appointmentDetails['doctorName'] . ' rescheduled successfully.',
+			'sessionMessageClass' => 'alert-success'
+		);
+		sendResheduleEmail($appointmentDetails);
+		return $message;
+	}
+	
+	return $message;
+}
+
+function sendResheduleEmail($data) {
+    $mailId = 10;
+    $welcomeMessageDetails = RetrieveMessage($mailId);
+    $nameFrom = $welcomeMessageDetails['From_STRING'];
+    $emailFrom = $welcomeMessageDetails['FromEmail_STRING'];
+    $ccTo = $welcomeMessageDetails['CCTo_STRING'];
+    $replyTo = $welcomeMessageDetails['ReplyTo_STRING'];
+    $subject = stripslashes($welcomeMessageDetails['MailSubject_STRING']);
+    $PtextMessage = stripslashes($welcomeMessageDetails['MailText_STRING']);
+    $DtextMessage = stripslashes($welcomeMessageDetails['MailText_STRING']);
+    $patienthtmlMessage = stripslashes($welcomeMessageDetails['MailHTML_STRING']);
+    $doctorhtmlMessage = stripslashes($welcomeMessageDetails['MailHTML_STRING']);
+    $priority = $welcomeMessageDetails['Priority_NUM'];
+    $doctorName = 'Dr. ' . $data['doctorName'];
+    $patientName = $data['patientName'];
+
+    $startDate = date('d-F-Y H:i', strtotime($data['start_date']));
+    $endDate = date('d-F-Y H:i', strtotime($data['end_date']));
+
+    $patientEmail = $data['email'];
+    
+    $patientDetails = "Patient details:" . "\n";
+    $patientDetails .= "CellPhone: " . $data['cell_phone'] . "\n";
+    $patientDetails .= "Email: " . $data['email'] . "\n";
+
+    $doctorDetails = "Doctor details:" . "\n";
+    $doctorDetails .= "CellPhone: " . $data['doctorCellPhone'] . "\n";
+    $doctorDetails .= "Email: " . $data['doctorEmail'] . "\n";
+    $doctorDetails .= "Address: " . $data['doctorAddress'] . "\n";
+
+    $patienthtmlMessage = str_replace("*|username|*", $patientName, $patienthtmlMessage);
+    $patienthtmlMessage = str_replace("*|appointmentuser|*", $doctorName, $patienthtmlMessage);
+    $patienthtmlMessage = str_replace("*|startdate|*", $startDate, $patienthtmlMessage);
+    $patienthtmlMessage = str_replace("*|enddate|*", $endDate, $patienthtmlMessage);
+    $patienthtmlMessage = str_replace("*|otherDetails|", $doctorDetails, $patienthtmlMessage);
+
+    $doctorhtmlMessage = str_replace("*|username|*", $doctorName, $doctorhtmlMessage);
+    $doctorhtmlMessage = str_replace("*|appointmentuser|*", $patientName, $doctorhtmlMessage);
+    $doctorhtmlMessage = str_replace("*|startdate|*", $startDate, $doctorhtmlMessage);
+    $doctorhtmlMessage = str_replace("*|enddate|*", $endDate, $doctorhtmlMessage);
+    $doctorhtmlMessage = str_replace("*|otherDetails|", $patientDetails, $doctorhtmlMessage);    
+
+    SendMultipartMIMEMail ($data['doctorEmail'], $nameFrom.' <'.$emailFrom.'>', $ccTo, $replyTo, $subject, $DtextMessage, $patienthtmlMessage, $priority);
+    SendMultipartMIMEMail ($data['email'], $nameFrom.' <'.$emailFrom.'>', $ccTo, $replyTo, $subject, $PtextMessage, $doctorhtmlMessage, $priority);
+}
+
+function sendCancellationEmail($appointmentId) {
+	$data = $appointmentDetails = getPatientAppointmentById($appointmentId);
+    $mailId = 11;
+    $messageDetails = RetrieveMessage($mailId);
+    $nameFrom = $messageDetails['From_STRING'];
+    $emailFrom = $messageDetails['FromEmail_STRING'];
+    $ccTo = $messageDetails['CCTo_STRING'];
+    $replyTo = $messageDetails['ReplyTo_STRING'];
+    $subject = stripslashes($messageDetails['MailSubject_STRING']);
+    $textMessage = stripslashes($messageDetails['MailText_STRING']);
+    $htmlMessage = stripslashes($messageDetails['MailHTML_STRING']);
+    $priority = $messageDetails['Priority_NUM'];
+    $doctorName = 'Dr. ' . $data['doctorName'];
+    $patientName = $data['patientName'];
+
+    $startDate = date('d-F-Y H:i', strtotime($data['start_date']));
+    $endDate = date('d-F-Y H:i', strtotime($data['end_date']));
+
+    $patientEmail = $data['email'];
+    $cellPhone = $data['cell_phone'];
+
+    $htmlMessage = str_replace("*|patientName|*", $patientName, $htmlMessage);
+    $htmlMessage = str_replace("*|DoctorName|*", $doctorName, $htmlMessage);
+    $htmlMessage = str_replace("*|startDate|*", $startDate, $htmlMessage);
+    $htmlMessage = str_replace("*|endDate|*", $endDate, $htmlMessage);
+    $htmlMessage = str_replace("*|patientEmail|*", $patientEmail, $htmlMessage);
+    $htmlMessage = str_replace("*|patientCellphone|*", $cellPhone, $htmlMessage);  
+
+    SendMultipartMIMEMail ($data['doctorEmail'], $nameFrom.' <'.$emailFrom.'>', $ccTo, $replyTo, $subject, $DtextMessage, $htmlMessage, $priority);
 }
 
 ?>

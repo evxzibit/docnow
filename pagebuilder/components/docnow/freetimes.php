@@ -65,6 +65,8 @@ $i = $_GET['id'];
 $days = daysBetween(strtotime($startdate),strtotime($enddate));
 $bookedDates = getDoctorAppointmentsdates($profile_id, $startdate, $enddate);
 
+$viewOnly = (isset($_GET['viewonly']) && $_GET['viewonly'] == 1) ? true : false;
+
 //echo $startdate.":".$days[0];
 ?>
  <script type="text/javascript">          
@@ -142,8 +144,11 @@ $bookedDates = getDoctorAppointmentsdates($profile_id, $startdate, $enddate);
         $end = date("Y-m-d H:i:s", strtotime($start . "+30 minutes"));  
 
         if(!in_array($start, $bookedDates, true)){    
-
-          echo '<td><a href="/booking?profile_id='.$profile_id.'&start_date='.$start.'&end_date='.$end.'">'.date('H:i',strtotime($start)).'</a></td>';
+          if ($viewOnly) {
+            echo '<td><a class="reschedule-new-date" data-end-date="' . $end . '" data-start-date="' . $start . '"  href="#">'.date('H:i',strtotime($start)).'-'.date('H:i', strtotime($end)).'</a></td>';
+          } else {
+            echo '<td><a href="/booking?profile_id='.$profile_id.'&start_date='.$start.'&end_date='.$end.'">'.date('H:i',strtotime($start)).'</a></td>';
+          }
 
         }else{
 
