@@ -43,7 +43,7 @@
 						end: value.end_date,
 						eventId: value.id,
 						// url: value.id,
-						color: value.payment_made == 1 ? '#51c5d7' : '#f58320';
+						color: value.payment_made == 1 ? '#51c5d7' : '#f58320'
 					};
 				eventData.push(temp);
 			});

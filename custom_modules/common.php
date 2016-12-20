@@ -147,6 +147,7 @@ function saveUserProfilePic($profileId, $directory) {
 function getUpcomingAppointments($profileId) {
 	$SQL = 'SELECT tAppointments.first_name, tAppointments.last_name, tAppointments.title, tAppointments.start_date, tAppointments.end_date, tAppointments.id FROM tAppointments
 		WHERE tAppointments.doctor_profile_id = "' . $profileId . '"
+		AND tAppointments.cancel = 0 
 		AND tAppointments.start_date > Now() 
 		ORDER BY tAppointments.start_date LIMIT 4';
 
@@ -161,7 +162,7 @@ function getUpcomingAppointments($profileId) {
 
 function getDoctorAppointments($profileId) {
 	$SQL = 'SELECT tUsers.first_name, tUsers.last_name, tAppointments.title, tAppointments.start_date,tAppointments.payment_made, tAppointments.confirmed,tAppointments.end_date, tAppointments.id, tAppointments.payment_amount FROM tAppointments LEFT JOIN tUsers ON tUsers.profile_id = tAppointments.patient_profile_id
-		WHERE tAppointments.doctor_profile_id = "' . $profileId . '"';
+		WHERE tAppointments.doctor_profile_id = "' . $profileId . '" AND tAppointments.cancel = 0';
 
 	$Query = QueryDB($SQL);
 	$appointments = array();
@@ -258,6 +259,7 @@ function getPatientUpcomingAppointments($profileId) {
 	$SQL = 'SELECT tUsers.profile_id, tUsers.last_name, tUsers.first_name,tUsers.profilepic, tAppointments.start_date, tAppointments.end_date, tAppointments.id FROM tAppointments
 		LEFT JOIN tUsers on tUsers.profile_id = tAppointments.doctor_profile_id
 		WHERE tAppointments.patient_profile_id = "' . $profileId . '"
+		AND tAppointments.cancel = 0 
 		AND tAppointments.start_date >= Now() 
 		ORDER BY tAppointments.start_date LIMIT 4';
 
@@ -284,6 +286,7 @@ function getPatientPastAppointments($profileId) {
 	$SQL = 'SELECT tUsers.profile_id, tUsers.last_name, tUsers.first_name,tUsers.profilepic, tAppointments.start_date, tAppointments.end_date, tAppointments.id FROM tAppointments
 		LEFT JOIN tUsers on tUsers.profile_id = tAppointments.doctor_profile_id
 		WHERE tAppointments.patient_profile_id = "' . $profileId . '"
+		AND tAppointments.cancel = 0 
 		AND tAppointments.start_date < Now() 
 		ORDER BY tAppointments.start_date LIMIT 4';
 
@@ -299,6 +302,7 @@ function getDoctorPastAppointments($profileId) {
 	$SQL = 'SELECT tAppointments.review_appointment_sent, tAppointments.first_name, tAppointments.last_name, tAppointments.title, tAppointments.start_date, tAppointments.end_date, tAppointments.id AS `appointment_id`
 		FROM tAppointments
 		WHERE tAppointments.doctor_profile_id = "' . $profileId . '"
+		AND tAppointments.cancel = 0 
 		AND tAppointments.end_date < Now() 
 		ORDER BY DATE(tAppointments.start_date) LIMIT 4';
 
@@ -320,7 +324,7 @@ function confirmAppointment($data) {
 	if (!$confirmation){
 		$sql = 'Update tAppointments set reschedule = 1, confirmed = 1, start_date = "' . $resheduleStartDate . '", end_date = "' . $resheduleSEndDate . '" WHERE id = "' . $appointmentId . '"';
 		UpdateDB($sql);
-		sendPatienBookingConfirmation($appointmentDetails);
+		sendResheduleEmail($appointmentDetails);
 	} elseif($data['confirmation'] == 'request-payment') {
 		$sql = 'Update tAppointments set payment_request_sent = 1, reschedule = 0, payment_request_sent_date = "' . date('Y-m-d H:i:s') . '" WHERE id = "' . $appointmentId . '"';
 		UpdateDB($sql);
@@ -544,7 +548,8 @@ function checkActiveAppointment($doctorProfileId, $patientProfileId) {
 	$SQL = 'SELECT * FROM tAppointments
 		WHERE tAppointments.doctor_profile_id = "' . $doctorProfileId . '"
 		AND tAppointments.patient_profile_id = "' . $patientProfileId . '"
-		AND tAppointments.start_date <= Now() 
+		AND tAppointments.start_date <= Now()
+		AND tAppointments.cancel = 0 
 		AND tAppointments.end_date >= Now() LIMIT 1';
 
 	$Query = QueryDB($SQL);
